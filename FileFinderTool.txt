@@ -1,8 +1,9 @@
 FileFinderTool - README
 
-Important;
+Important:
 For installation, start FileFinderToolInstaller.exe with administrator rights.
-Otherwise you will get an error if you leave Automatic on after installation.
+It is also advisable to start the program itself with administrator rights,
+because the program has to write the search path to your hard drive.
 
 Description:
 FileFinderTool is a Node.js-based application that allows you to search for files matching a specific pattern within a directory and its subdirectories. It provides the ability to find duplicate or related files based on partial filename patterns. Additionally, the tool allows users to delete files directly from the interface and set custom directories for searching.
