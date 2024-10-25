@@ -4,7 +4,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = htmlspecialchars(trim($_POST['email']));
     $message = htmlspecialchars(trim($_POST['message']));
     
-    $to = 'OnlyRegistered@yandex.com'; // Your email address
+    $to = 'OnlyRegistered@yandex.com'; // Replace with your email
     $subject = 'New Contact Form Submission';
     $body = "Name: $name\nEmail: $email\nMessage: $message";
     $headers = "From: $email\r\n";
