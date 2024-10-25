@@ -42,67 +42,44 @@
     <h1>Our Software Development & Downloads</h1>
 
     <p>We are a small group of passionate developers dedicated to creating free software products.</p>
-    <p>You can access our public repository using the following link. Under the "Main" section, navigate to "Software Downloads," where you will find our projects along with their descriptions.</p>
-    <p>Please note that all of our projects are currently designed exclusively for MS Windows; however, we plan to expand this in the future. The applications can be installed using the install.exe file, and they are packaged as downloadable .rar files.</p>
-    <ul>
-        <li><a href="https://github.com/OnlyRegistered/appfeedback/" aria-label="Public repository; app feedback and software download">Public repository; app feedback and software download</a></li>
-        <li><a href="projects.images.html" aria-label="Projects short description and picture.">Projects short description and picture.</a></li>
-    </ul>
-
-    <h2>Support Our Software Development</h2>
-    <p>As we strive to keep our projects alive, we find ourselves in need of support to continue our journey. While we are not an organization, we are committed to our mission and would be grateful for any contributions that can help us sustain our efforts. If you appreciate our work and wish to support us, you can do so through the following options:</p>
-    <ul>
-        <li><a href="payment.options.html" aria-label="Support us via PayPal or Cryptocurrency">Support us via PayPal or Cryptocurrency</a></li>
-    </ul>
-
-<h3>Contact Form</h3>
-<p>We also welcome your ideas and suggestions! Please share your thoughts with us using the contact form below:</p>
-
-<form id="contact-form" action="process-form.php" method="POST">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required>
     
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    
-    <label for="message">Message:</label>
-    <textarea id="message" name="message" required></textarea>
-    
-    <input type="submit" value="Send">
-</form>
+    <!-- Your content goes here -->
 
-<script>
-    const form = document.getElementById('contact-form');
+    <h3>Contact Form</h3>
+    <p>We also welcome your ideas and suggestions! Please share your thoughts with us using the contact form below:</p>
     
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    <form id="contact-form" action="process-form.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
         
-        fetch('process-form.php', {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => response.text())
-        .then(data => {
-            alert(data); // Show server response
-            form.reset(); // Reset the form after submission
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <input type="submit" value="Send">
+    </form>
+    
+    <script>
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
             
-            // Request notification permission
-            if (Notification.permission === 'granted') {
-                new Notification('Thank you for your message!');
-            } else if (Notification.permission !== 'denied') {
-                Notification.requestPermission().then(permission => {
-                    if (permission === 'granted') {
-                        new Notification('Thank you for your message!');
-                    }
-                });
-            }
-        })
-        .catch(error => {
-            alert('There was an error sending your message. Please try again.');
-            console.error(error);
+            fetch('process-form.php', {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data); // Show server response
+                form.reset(); // Reset the form after submission
+            })
+            .catch(error => {
+                alert('There was an error sending your message. Please try again.');
+                console.error(error);
+            });
         });
-    });
-</script>
-
+    </script> 
 </body>
 </html>
