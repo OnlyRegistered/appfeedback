@@ -89,6 +89,7 @@
 
 <script>
     const form = document.getElementById('contact-form');
+    
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         
@@ -100,6 +101,17 @@
         .then(data => {
             alert(data); // Show server response
             form.reset(); // Reset the form after submission
+            
+            // Request notification permission
+            if (Notification.permission === 'granted') {
+                new Notification('Thank you for your message!');
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification('Thank you for your message!');
+                    }
+                });
+            }
         })
         .catch(error => {
             alert('There was an error sending your message. Please try again.');
@@ -107,6 +119,7 @@
         });
     });
 </script>
+
 
 </body>
 </html>
