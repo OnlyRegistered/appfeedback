@@ -71,25 +71,42 @@
         <input type="submit" value="Send">
     </form>
     
-    <script>
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            fetch('process-form.php', {
-                method: 'POST',
-                body: new FormData(form)
-            })
-            .then(response => response.text())
-            .then(data => {
-                alert('Thank you for your message! We appreciate your support.');
-                form.reset(); // Reset the form after submission
-            })
-            .catch(error => {
-                alert('There was an error sending your message. Please try again.');
-                console.error(error);
-            });
+<h3>Contact Form</h3>
+<p>We also welcome your ideas and suggestions! Please share your thoughts with us using the contact form below:</p>
+
+<form id="contact-form" action="process-form.php" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+    
+    <input type="submit" value="Send">
+</form>
+
+<script>
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        fetch('process-form.php', {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => response.text())
+        .then(data => {
+            alert(data); // Show server response
+            form.reset(); // Reset the form after submission
+        })
+        .catch(error => {
+            alert('There was an error sending your message. Please try again.');
+            console.error(error);
         });
-    </script> 
+    });
+</script>
+
 </body>
 </html>
