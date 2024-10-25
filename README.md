@@ -1,4 +1,4 @@
-# Our Software Development and Projects
+## Our Software Development and Projects
 
 We are a small group of passionate developers dedicated to creating free software products. You can access our public repository. Under the "Main" section, navigate to "Software Downloads," where you will find our projects along with their descriptions.
 
@@ -35,7 +35,7 @@ All of our projects are currently designed exclusively for MS Windows; however, 
 7. **Simple Video Conference**  
    A video conferencing tool without the advertising and restrictions found in platforms like Skype and Zoom.
 
-# Support Our Projects
+## Support Our Projects
 
 As we strive to keep our projects alive, we find ourselves in need of support to continue our journey. While we are not an organization, we are committed to our mission and would be grateful for any contributions that help us sustain our efforts. If you appreciate our work and wish to support us, you can do so through the following options:
 
