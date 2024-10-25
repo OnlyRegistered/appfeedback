@@ -1,11 +1,3 @@
-## Our Software Development and Projects
-
-We are a small group of passionate developers dedicated to creating free software products. You can access our public repository. Under the "Main" section, navigate to "Software Downloads," where you will find our projects along with their descriptions.
-
-All of our projects are currently designed exclusively for MS Windows; however, we plan to expand this in the future. The applications can be installed using the `Program-install.exe` file, and they are packaged as downloadable `.rar` files.
-
-**[Projects](https://onlyregistered.github.io/appfeedback/projects.images.html)**
-
 # Our Software Development and Projects
 
 We are a small group of passionate developers dedicated to creating free software products. You can access our public repository. Under the "Main" section, navigate to "Software Downloads," where you will find our projects along with their descriptions.
