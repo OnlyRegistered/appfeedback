@@ -6,25 +6,25 @@ All of our projects are currently designed exclusively for MS Windows; however, 
 
 **[Projects](https://onlyregistered.github.io/appfeedback/projects.images.html)**
 
-1. ## PC Tools
+1. <span style="color: darkblue;">**PC Tools**</span>  
    Small, miscellaneous programs that make everyday tasks easier.
 
-2. ## File Finder Tool
+2. <span style="color: darkblue;">**File Finder Tool**</span>  
    A program that searches your hard drive or specific locations to find duplicate files for deletion.
 
-3. ## Clean Hard Drive  
+3. <span style="color: darkblue;">**Clean Hard Drive**</span>  
    A tool to clean up specific files in your system that you no longer need.
 
-4. ## Image Index 
+4. <span style="color: darkblue;">**Image Index**</span>  
    An HTML creator that searches a specified directory for image files and generates an HTML page.
 
-5. ## Music Index
+5. <span style="color: darkblue;">**Music Index**</span>  
    An HTML creator that scans for audio files (like .mp3 and .mp4) and builds a music library that can be accessed online.
 
-6. ## Movie Index
+6. <span style="color: darkblue;">**Movie Index**</span>  
    A program similar to Music Index, but for video files. It creates an HTML page to serve your movies and videos online.
 
-7. ## Simple Video Conference
+7. <span style="color: darkblue;">**Simple Video Conference**</span>  
    A video conferencing tool without the advertising and restrictions found in platforms like Skype and Zoom.
 
 # Support Our Projects
