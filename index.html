@@ -66,7 +66,7 @@
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            fetch('process-form.php', {
+            fetch('process.form.php', {
                 method: 'POST',
                 body: new FormData(form)
             })
