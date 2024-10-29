@@ -1,0 +1,36 @@
+OnlyTalk - README
+
+Important:
+
+OnlyTalk only works with a private network service.
+We recommend RadminVPN.
+
+Installation Instructions
+
+    Download the OnlyTalk Package
+    Download the packaged OnlyTalk.rar file.
+
+    Extract the Files
+    Unpack it using a RAR extraction tool.
+
+    Install the Program
+    Run OnlyTalkInstaller.exe with administrator rights.
+
+
+Running the Program
+
+As Host:
+
+    Double-click OnlyTalkHost.exe or use the shortcut from the Windows Start menu or your desktop to start the program.
+    Enter your RadminVPN IP address and press Enter.
+    This will launch OnlyTalk in your browser, allowing you to interact seamlessly.
+
+As User:
+
+    Double-click OnlyTalkUser.exe or use the shortcut from the Windows Start menu or your desktop to start the program.
+    Enter the RadminVPN IP address from the Host and press Enter.
+    This will launch OnlyTalk in your browser, allowing you to interact seamlessly.
+
+
+Thank you for using OnlyTalk!
+For feedback, please visit: https://onlyregistered.github.io/appfeedback/
