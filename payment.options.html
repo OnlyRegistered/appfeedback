@@ -3,53 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment Options</title>
+    <title>Projects</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-            color: #333;
+body {
+    font-family: Arial, sans-serif;
+    margin: 5px;
+    background-color: #f4f4f4;
+    color: #2c3e50;
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center h2 and h3 */
+    height: 100vh; /* Full viewport height */
+}
+        .project {
+            margin: 20px 0;
+            text-align: center;
+            color: #000000;
         }
-        h2, h3, h4 {
-            color: #2c3e50;
+        .images {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
         }
-        form {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        .images img {
+            margin: 0 10px;
+            max-width: 150px; /* Adjust size as needed */
+            transition: transform 0.3s ease; /* Smooth transition */
         }
-        ul {
-            padding-left: 20px; /* Added padding for better list visibility */
-        }
-        p {
-            margin: 5px 0; /* Added margin for paragraph spacing */
+        .images img:hover {
+            transform: scale(4); /* Scale up on hover */
+            z-index: 1; /* Bring to the front */
         }
     </style>
 </head>
 <body>
-    <h2>Payment Options</h2>
-    <ul>
-        <li>
-            <a href="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fmyaccount%2Fsummary&state=" aria-label="Sign in to PayPal for payment options">
-                A Simple and Safer Way to Pay and Get Paid
-            </a>
-        </li>
-    </ul>
-    
-    <h4>Crypto Currency</h4>
-    <p><strong>Bitcoin Address:</strong> <br> bc1qq4s9lrsgudma4h297armt9gn8wqt7980zkssfm</p>
-    <p><strong>Ethereum Address:</strong> <br> 0xeb4B736f00C8837F1b7A20446D2B42e8739D623F</p>
-    <p><strong>Solana Address:</strong> <br> 8amSx5m3coeftU5Z67msJLBFjMdcZJyYR6edWHmFxrRn</p>
-    <p><strong>Monero Address:</strong> <br> 41gAu87DE9k6foS1ZbbkSuFbw7H8VmcjQ7TKMq5T3PBhjjNcm2sLEALV1R14F99KUiRPwWBuU1f4eKjLvXVibiQkA99UBcF</p>
-    <p><strong>ZEPHYR Address:</strong> <br> ZEPHYR2eRnKT6rdii3AC5fWiftuBxeyQWTpUNixvVGNzPmpyVytM8LeRmVAa1Lf9qfiY9z5jGb1i3QjNwwyJsGJPY2JhLZSAMcM1J</p>
-    
-    <p>We really welcome your support; thank you very much.</p>
+    <h1>Projects</h1>
 
-    <h4>List of users who donated more than 50 US dollars, counted as of November 2024:</h4>
-    <h3>Official List:</h3>
-    <p>Username</p>
-    <p>Username</p>
+    <div class="project">
+        <h2>PC Tools</h2>
+        <p>A collection of small, miscellaneous programs designed to make everyday tasks easier. Examples include tools to:
+            Change the file extensions of multiple files at once.
+            Rename images in bulk (e.g., from MDAR143.MPG to fell (1).mpg, fell (2).mpg, etc.).
+            Convert file names from upper to lower case (e.g., changing .MP3 to .mp3).
+            These tools simplify your workflow and enhance your file management experience!
+        </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/PcTools1.png" alt="PC Tools Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/PcTools2.png" alt="PC Tools Image 1">
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>OnlyTalk</h2>
+        <p>OnlyTalk is a Node.js-based application designed for seamless voice communication with your gaming friends, supporting 6-10 users at a time.
+            No Advertisements: Enjoy an uninterrupted experience with absolutely no ads.
+            Resource-Efficient: The application uses minimal computer resources, allowing you to dedicate your system's power to gaming.
+            Reliable Connection: OnlyTalk was developed to provide a hassle-free way to chat with friends, ensuring stable connections without interruptions.
+            For safety and privacy, OnlyTalk operates exclusively over private networks. We recommend using RadminVPN for the best experience.
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/OnlyTalk1.png" alt="OnlyTalk Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/OnlyTalk2.png" alt="OnliTalk Image 2">
+        </div>
+    </div>
+    <div class="project">
+        <h2>FileFinderTool</h2>
+        <p>FileFinderTool is a powerful Node.js-based application designed to help you declutter your hard drive by searching for files that match specific patterns within a directory and its subdirectories.
+            With the ability to identify duplicate or related files based on partial filename patterns, this tool makes it easy to target specific file types through extension searches. 
+            Users can delete files directly from the interface and set custom directories for their searches, ensuring they uncover items long forgotten. Streamline your storage and free up valuable space on your system with FileFinderTool!
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/FileFinderTool1.png" alt="FileFinderTool Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/FileFinderTool2.png" alt="FileFinderTool Image 2">
+        </div>
+    </div>
+    <div class="project">
+        <h2>FileFinderTool</h2>
+        <p>FileFinderTool is a powerful Node.js-based application designed to help you declutter your hard drive by searching for files that match specific patterns within a directory and its subdirectories.
+            With the ability to identify duplicate or related files based on partial filename patterns, this tool makes it easy to target specific file types through extension searches. 
+            Users can delete files directly from the interface and set custom directories for their searches, ensuring they uncover items long forgotten. Streamline your storage and free up valuable space on your system with FileFinderTool!
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/FileFinderTool1.png" alt="FileFinderTool Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/FileFinderTool2.png" alt="FileFinderTool Image 2">
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>CleanHardDrive</h2>
+        <p>This tool helps you clean up specific files in your system that you no longer need. Simply specify the file types and locations to search, and the program will assist you in reclaiming space by removing unnecessary files.
+            While this version is based on the index cleaners, it operates as an independent function with its own customizable options. Streamline your system and enjoy a clutter-free experience!
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/CleanHardDrive1.png" alt="CleanHardDrive Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/CleanHardDrive2.png" alt="CleanHardDrive Image 2">
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>Image Index</h2>
+        <p>Your Image Database Creator!
+            Create your own image database using the image files stored on your computer, and share it online within the RadminVPN private network with family and friends.           
+            Supported image formats include: .jpg, .jpeg, .gif, .png, .webp, .bmp, .tiff, .pst, .pdf, .raw, .eps, .ai, .indd, .dwg.         
+            Formats that are not supported by your browser will be automatically downloaded.           
+            The HTML structure is organized similarly to your directory structure on your hard drive, and you have the option to hide specific directories. By renaming a directory with the extension _no order _private, those directories will be excluded from the system and will not be listed.           
+            Each time you launch Image Index, you can specify your drive, and your HTML network will be created. Any changes made to your directory structure or image files will be updated automatically upon startup.           
+            The search function is designed to yield more results the fewer characters you enter.         
+            If you decide to stop using it, you can use the CleanHardDrive option to delete the entire HTML structure you’ve created, leaving no remnants behind.
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/ImageIndex1.png" alt="Image Index Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/ImageIndex2.png" alt="Image Index Image 2">
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>Music Index</h2>
+        <p>Your Music Database Creator!
+            Create your own music database using the audio files stored on your computer and share it online within the RadminVPN private network with family and friends.
+            Supported audio formats include: .mp3, .mp4, .webm, .aac, .ogg, .opus, .wav, .m4a, .3gp, .aiff, .au, .amr.
+            If your browser does not support certain formats, those files will be automatically downloaded, allowing you to play them with another player, such as VLC.
+            If you have VLC player and VLC playlists, you can download and play them directly from Music Index as well.
+            Additionally, if you save an image in formats like .jpg, .jpeg, .gif, .png, .webp, .bmp with the same name as your audio file, that image will be displayed alongside the audio file.
+            The HTML structure is organized similarly to your directory structure on your hard drive, and you have the option to hide specific directories. By renaming a directory with the extension _no order _private, it will be excluded from the system and not listed.
+            Each time you launch Music Index, you can specify your drive, and your HTML network will be created. Any changes made to your directory structure or music files will be updated automatically upon startup.
+            The search function is designed to yield more results the fewer characters you enter.
+            If you decide to stop using it, you can utilize the CleanHardDrive option to delete the entire HTML structure you created, leaving no remnants behind.
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/MusicIndex1.png" alt="Music Index Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/MusicIndex2.png" alt="Music Index Image 2">
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>Movie Index</h2>
+        <p>Your Movie Database Creator!
+            Create your own movie database using the video files stored on your computer, and share it online within the RadminVPN private network with family and friends.           
+            Supported video formats include: .mp4, .webm, .ts, .mkv, .avi, .divx, .mov, .mpg, .mpeg, .mpeg-2, .3gp, .flv, .xspf.           
+            Formats that are not supported by your browser will be automatically downloaded, allowing you to play them with another player, such as VLC.           
+            If you have VLC player and VLC playlists, you can load and play them directly from Movie Index, enabling you to watch your series episodes consecutively without needing to open each file individually.           
+            If you save an image in formats like .jpg, .jpeg, .gif, .png, .webp, .bmp with the same name as your video file, that image will be displayed alongside the movie.            
+            The HTML structure is organized similarly to your directory structure on your hard drive. You also have the option to hide specific directories. By renaming a directory with the extension _no or _private, those directories will be ignored by the system and not listed.           
+            Each time you launch Movie Index, you can specify your drive, and your HTML network will be created. Any changes made to your directory structure or video files will be updated automatically upon startup.           
+            The search function is designed to yield more results the fewer characters you enter.            
+            If you decide to stop using it, you can use the CleanHardDrive option to delete the entire HTML structure you’ve created, leaving no remnants behind.
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/MovieIndex1.png" alt="Movie Index Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/MovieIndex2.png" alt="Movie Index Image 2">
+        </div>
+    </div>
+
+    <div class="project">
+        <h2>Video Conference</h2>
+        <p>Device to Device Video Conference
+            Introducing a video conferencing tool free from the advertising and restrictions often found in platforms like Skype and Zoom. Connect with up to 6-10 people in the same conference, depending on your computer's performance, for seamless video communication without the hassle of manually answering calls.           
+            This tool also doubles as a security camera for your home, allowing you to monitor your living room from anywhere when your computer is on.           
+            Enjoy integrated chat features with emojis and file sharing to enhance your communication experience. Have fun connecting!
+            </p>
+        <div class="images">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/VideoConference1.png" alt="Simple Video Conference Image 1">
+            <img src="https://raw.githubusercontent.com/OnlyRegistered/appfeedback/refs/heads/Projects-Images/VideoConference2.png" alt="Simple Video Conference Image 2">
+        </div>
+    </div>
 </body>
 </html>
