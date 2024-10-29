@@ -10,7 +10,7 @@ All of our projects are currently designed exclusively for MS Windows; however, 
    Small, miscellaneous programs that make everyday tasks easier.
 
 2. **Only Talk**  
-   A voice connection especially for gamers, supporting 6-10 users together in one connection.
+   A voice connection especially for gamer, supporting 6-10 users together in one connection.
 3. **File Finder Tool**  
    A program that searches your hard drive or specific locations to find duplicate files for deletion.
 
