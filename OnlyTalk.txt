@@ -1,9 +1,16 @@
 OnlyTalk - README
 
-Important:
 
-OnlyTalk only works with a private network service.
-We recommend RadminVPN.
+OnlyTalk Overview
+
+OnlyTalk is a Node.js-based application designed for seamless voice communication with your gaming friends, supporting 6-10 users at a time.
+
+    No Advertisements: Enjoy an uninterrupted experience with absolutely no ads.
+    Resource-Efficient: The application uses minimal computer resources, allowing you to dedicate your system's power to gaming.
+    Reliable Connection: OnlyTalk was developed to provide a hassle-free way to chat with friends, ensuring stable connections without interruptions.
+
+For safety and privacy, OnlyTalk operates exclusively over private networks. We recommend using RadminVPN for the best experience.
+
 
 Installation Instructions
 
