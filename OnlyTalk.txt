@@ -1,6 +1,3 @@
-OnlyTalk - README
-
-
 OnlyTalk Overview
 
 OnlyTalk is a Node.js based application designed for seamless voice communication with your gaming friends, supporting 6-10 users at a time.
