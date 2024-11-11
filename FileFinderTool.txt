@@ -1,0 +1,73 @@
+FileFinderTool - Overview
+
+Important:
+Start FileFinderToolInstaller.exe with administrator rights, it is also advisable
+to start the program itself with administrator rights.
+If you open the program via the shortcut and it opens after your entry, then close it without showing any errors.
+There is an error with the administrator rights, please go to the installation directory "C:\Program Files (x86)\FileFinderTool\ and set administrator rights to FileFinder.exe and FileFinderTool.exe.
+
+Description:
+FileFinderTool is a powerful Node.js-based application designed to help you declutter your hard drive by searching for files that match specific patterns within a directory and its subdirectories. With the ability to identify duplicate or related files based on partial filename patterns, this tool makes it easy to target specific file types through extension searches. Users can delete files directly from the interface and set custom directories for their searches, ensuring they uncover items long forgotten. Streamline your storage and free up valuable space on your system with FileFinderTool!
+
+Features:
+Set Custom Directory:
+You can specify any directory from which to start searching for files.
+This directory can be changed dynamically by the user via the provided interface.
+
+Search for Files by Pattern:
+The tool allows you to search for files using partial or full filename patterns (e.g., "extension" will match any file containing that sequence of characters).
+It supports case-insensitive searching and partial pattern matches.
+
+Recursive Search:
+The search is performed recursively, meaning that the tool will search not only in the specified directory but also in all its subdirectories.
+
+Exclude System Directories:
+Certain system directories, such as System Volume Information and $RECYCLE.BIN, are automatically excluded from the search to avoid unnecessary matches.
+
+Delete Files:
+Users can delete files directly from the interface. The tool will prompt the user for confirmation before proceeding with deletion.
+Deleting files will update the results, marking them as deleted, so they won't be searchable again unless new files are added.
+
+Dynamic '.env' File Configuration:
+The tool uses an .env file to store the root directory, allowing the user to easily update the root directory and save the configuration for future searches.
+
+View and Download Files:
+Files found in the search can be opened directly in the browser (if supported by the file format) or downloaded if they are not viewable in the browser.
+
+Installation Instructions:
+Download the packaged FileFinderTool.rar file unpack it with rar.
+Install the program with FileFinder Tool Installer.exe with administrator rights.
+
+Running the Program:
+Simply double-click the FileFinderTool.exe or the shortcut in the Windows start menu or on your desktop, to start the program.
+It will launch a server at http://localhost:8443, where you can interact with the tool through your browser.
+
+How to Use FileFinderTool:
+Set Directory:
+Navigate to http://localhost:8443 in your browser.
+Use the "Set Directory" form to specify the root directory where you'd like to perform searches.
+
+Search for Files:
+Enter a filename pattern in the search form (e.g., "extension") and click the "Find Files" button.
+The tool will search the selected directory and list all matching files.
+View or Download Files:
+
+Click on a file link in the search results to view the file in your browser or download it.
+
+Delete Files:
+Click the "Delete" button next to any file in the search results to delete it.
+You will be asked to confirm the deletion before the file is permanently removed.
+
+Additional Notes:
+File System Compatibility: The tool works on any directory and supports file systems compatible with Windows.
+
+System Directories Excluded: Directories such as $RECYCLE.BIN, System Volume Information, and similar system-related directories are automatically excluded from searches.
+
+Error Handling: Files or directories that are inaccessible due to system restrictions (e.g., permissions) will be gracefully skipped.
+
+Performance: For large directories, the tool processes files concurrently to optimize search speed.
+
+Thank you for using FileFinderTool!
+For feedback, please visit: https://onlyregistered.github.io/appfeedback/
+
+This software is provided for free for personal and non-commercial use. You may share the compiled application, but the source code is not available for public use or redistribution. All rights reserved.
