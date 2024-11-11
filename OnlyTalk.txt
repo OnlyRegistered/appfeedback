@@ -1,0 +1,47 @@
+OnlyTalk - Overview
+
+OnlyTalk is a Node.js based application designed for seamless voice communication with your gaming friends, supporting 6-10 users at a time.
+
+No Advertisements: Enjoy an uninterrupted experience with absolutely no ads.
+Resource-Efficient: The application uses minimal computer resources, allowing you to dedicate your system's power to gaming.
+
+Reliable Connection: Only Talk was developed to provide a hassle-free way to chat with friends, ensuring stable connections without interruptions.
+
+For safety and privacy, Only Talk operates exclusively over private networks. We recommend using Radmin VPN for the best experience.
+
+Installation Instructions
+
+    Download the OnlyTalk Package
+    Download the packaged OnlyTalk.rar file.
+
+    Extract the Files
+    Unpack it using a RAR extraction tool.
+
+    Install the Program
+    Run OnlyTalkInstaller.exe with administrator rights.
+If you open the program via the shortcut and it opens after your entry, then close it without showing any errors.
+There is an error with the administrator rights, please go to the installation directory "C:\Program Files (x86)\OnlyTalk\ and set administrator rights to OnlyTalk.exe and OnlyTalk.Host.exe.
+
+Running the Program
+
+As Host:
+
+    Double-click on the "Only Talk Host" icon, or use the shortcut from the Windows Start menu or your desktop to launch the program.
+    Enter your Radmin VPN IP address and press Enter.
+    This will open Only Talk in your browser, enabling seamless interaction.
+
+As User:
+
+    Double-click on the "Only Talk User" icon, or use the shortcut from the Windows Start menu or your desktop to launch the program.
+    Enter the Radmin VPN IP address provided by the Host and press Enter.
+    This will open Only Talk in your browser, allowing for seamless interaction as well.
+
+Now, click the 'Start Voice Chat' button and wait for another user to join. They will automatically connect and begin speaking once they have also pressed the 'Start Voice Chat'.
+This process will occur with every other user.
+
+Enjoy your online gaming experience with your new voice chat feature, Only Talk!
+
+Thank you for using OnlyTalk!
+For feedback, please visit: https://onlyregistered.github.io/appfeedback/
+
+This software is provided for free for personal and non-commercial use. You may share the compiled application, but the source code is not available for public use or redistribution. All rights reserved.
