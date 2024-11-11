@@ -5,7 +5,7 @@ We are a small group of passionate developers dedicated to creating free softwar
 All of our projects are currently designed exclusively for MS Windows; however, we plan to expand this in the future. The applications can be installed using the `Program-install.exe` file, and they are packaged as downloadable `.rar` files.
 
 **[Projects](https://onlyregistered.github.io/appfeedback/projects.images.html)**
-
+**[Downloads](https://onlyregistered.itch.io/)**
 1. **PC Tools**  
    Small, miscellaneous programs that make everyday tasks easier.
 
