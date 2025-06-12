@@ -74,7 +74,10 @@
     <a id="contact-link" href="mailto:OnlyRegistered@yandex.com">Click here if you have problems with Contact Form!</a>
 <a></a> </a>
 <!-- modify this form HTML and place wherever you want your form -->
-                    Your email:
+
+    <form id="contact-form" action="https://formspree.io/f/mgvykraq" method="POST">
+        <label>
+            Your email:
             <input type="email" name="email" required>
         </label>
         <label>
@@ -83,10 +86,13 @@
         </label>
         <button type="submit">Send</button>
     </form>
+
     <script>
         const form = document.getElementById('contact-form');
+
         form.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent the default form submission
+
             fetch(form.action, {
                 method: 'POST',
                 headers: {
