@@ -73,18 +73,22 @@
     <p>We also welcome your ideas and suggestions! Please share your thoughts with us using the contact form below:</p>
     <a id="contact-link" href="mailto:OnlyRegistered@yandex.com">Click here if you have problems with Contact Form!</a>
 
-    <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
-
-        <input type="submit" value="Send">
-    </form>
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/mgvykraq"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
 
     <script>
         const form = document.getElementById('contact-form');
