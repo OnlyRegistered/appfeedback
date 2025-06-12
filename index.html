@@ -31,7 +31,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        input, textarea {
+        input, textarea, select {
             width: 100%;
             margin-bottom: 15px;
             padding: 10px;
@@ -75,11 +75,25 @@
 
     <form id="contact-form" action="https://formspree.io/f/mgvykraq" method="POST">
         <label>
-            Your email:
+            Your Name:
+            <input type="text" name="name" required>
+        </label>
+        <label>
+            Reason for Email:
+            <select name="reason" required>
+                <option value="" disabled selected>Select a reason</option>
+                <option value="feedback">Feedback</option>
+                <option value="support">Support</option>
+                <option value="inquiry">Inquiry</option>
+                <option value="other">Other</option>
+            </select>
+        </label>
+        <label>
+            Your Email:
             <input type="email" name="email" required>
         </label>
         <label>
-            Your message:
+            Your Message:
             <textarea name="message" required></textarea>
         </label>
         <button type="submit">Send</button>
