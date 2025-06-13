@@ -1,47 +1,49 @@
 Image Index - Overview
 
-Your Image Database Creator! Create your own Image database using the image files stored on your computer and share it online within a VPN private network or local network with family and friends. Supported image formats include: .jpg, .jpeg, .gif, .png, .webp, .bmp, .tiff, .pst, .pdf, .raw, .eps, .ai, .indd, .dwg. If your browser does not support certain formats, those files will be automatically downloaded, allowing you to play them with another player, such as VLC. If you have VLC Player and VLC playlists, you can download and play them directly from Image Index as well.
+Description: Image Index is your personal image database creator! Organize and share image files from your computer within a VPN, private network, or local network.
 
-Additionally, if you save an image in formats like .jpg, .jpeg, .gif, .png, .webp, or .bmp with the same name as your image file, that image will be displayed alongside the image file. The HTML structure is organized similarly to your directory structure on your hard drive, and you have the option to hide specific directories. By renaming a directory with the extension _no order _private, it will be excluded from the system and not listed. Each time you launch Image Index, you can specify your drive, and your HTML network will be created. Any changes made to your directory structure or Image files will be updated automatically upon startup. The search function is designed to yield more results the fewer characters you enter.
+Supported Formats: .jpg, .jpeg, .gif, .png, .webp, .bmp, .tiff, .pst, .pdf, .raw, .eps, .ai, .indd, .dwg. Unsupported formats will automatically download, allowing you to view them with external App's.
 
-If you decide to stop using Image Index, you can utilize the CleanIndex option to delete the entire HTML structure you created, leaving no remnants behind.
+Additional Features:
+If you save a thumbnail image (in .jpg, .jpeg, .gif, .png, .webp, or .bmp format) with the same name as your image file, it will be displayed alongside the original.
+The HTML structure mirrors your hard drive's directory structure.
+You can hide specific directories by renaming them with the extension "_no order _private". These directories will be excluded.
+Each time you launch Image Index, you specify your drive, and your HTML network is created/updated. Changes to your directory structure or image files are automatically reflected on startup.
+The search function provides more results with fewer characters entered.
+A list of your networks will be displayed. With a WebSocket extension for your internet browser, you can send messages to the server and all clients.
+Use the CleanIndex option to completely remove the created HTML structure when you stop using Image Index.
+You can easily change the styles.css, background.mp4, and all sound output to your liking.
 
 Installation Instructions
 
-    Download the ImageIndex Package
-    Download the packaged ImageIndex.rar file.
-
-    Extract the Files
-    Unpack it using a RAR extraction tool.
-
-    Install the Program
-    Run ImageIndex Installer.exe with administrator rights.
-If you run the program via the shortcut and it opens after your entry, then close it without showing any errors.
-There is an error with the administrator rights, please go to the installation directory "C:\Program Files (x86)\Image Index\ and set administrator rights to CleanIndex.exe, CleanUP.exe and Image Index.exe.
+Download: Download the ImageIndex Package (ImageIndex.rar).
+Extract: Unpack the .rar file using a RAR extraction tool.
+Install: Run ImageIndex Installer.exe with administrator rights. If the program closes immediately after opening via the shortcut, manually set administrator rights for CleanIndex.exe, CleanUP.exe, and Image Index.exe in the installation directory ("C:\Program Files (x86)\Image Index").
 
 Running the Program
 
-    Double-click on the "Image Index Server" icon, or use the shortcut from the Windows Start menu or your desktop to launch the program.
-    Enter your VPN or localhost IP address and press Enter.
-    Then, enter your working directory where you want to create the Image index. (Note: Image files are only read in the subdirectories of the main directory. So, if D:\ is the main directory, all Image files located in subdirectories of D:\ will be read and included.)
-    This will open Image Index in your browser, enabling seamless interaction.
+Image Index Server (Host):
+Double-click the "Image Index Server" icon or use the shortcut.
+Enter your VPN or localhost IP address and press Enter.
+Enter the working directory where you want to create the image index. (Image files are read only from subdirectories of this main directory. For example, if D:\ is the main directory, image files in subdirectories of D:\ will be included.)
+Image Index will open in your browser.
 
-As Image Index Visitors:
+Image Index Visitors:
+Double-click the "Image Index Visitors" icon or use the shortcut.
+Enter the VPN or localhost IP address provided by the Host-User and press Enter.
+Image Index will open in your browser.
 
-    Double-click on the "Image Index Visitors" icon, or use the shortcut from the Windows Start menu or your desktop to launch the program.
-    Enter the VPN or localhost IP address provided by the Host-User and press Enter.
-    This will open Image Index in your browser, allowing for seamless interaction as well.
+Image Index CleanUp:
+Double-click the "Image Index CleanUp" icon or use the shortcut.
+A prompt will appear: "Do you want to clean up the Image Index immediately? (Y/N)"
+If you choose "No," the CleanIndex-Server will start after 20 seconds, and you can start the process from Image Index.
+Press "Y" for Yes or "N" for No. CleanUp can only be used by the host user and uses the last directory path used to create the Image Index.
 
-As Image Index CleanUp:
-
-    Double-click on the "Image Index CleanUp" icon, or use the shortcut from the Windows Start menu to launch the program.
-    A prompt will appear: "Do you want to clean up the Image Index immediately? (Y/N)"
-    If you choose "No," the CleanIndex-Server will start after 20 seconds. You can then start the process from Image Index.
-    Press Y for Yes or N for No. The cleanup process can be used on Image Index as a host user only. CleanUp always uses the last directory path you used to create the Image Index.
-
-Enjoy your online Image Index experience with your new Image Database Creator!
+Enjoy creating and sharing your online image collection with Image Index!
 
 Thank you for using Image Index!
+
 For feedback, please visit: https://onlyregistered.github.io/appfeedback/
 
-This software is provided for free for personal and non-commercial use. You may share the compiled application, but the source code is not available for public use or redistribution. All rights reserved.
+This software is provided free for personal and non-commercial use. You may share the compiled application, but the source code is not available for public use or redistribution.
+All rights reserved.
