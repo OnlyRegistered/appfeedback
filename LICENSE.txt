@@ -1,2 +1,0 @@
-License;
-This software is provided for free for personal and non-commercial use. You may share the compiled application, but the source code is not available for public use or redistribution. All rights reserved.
