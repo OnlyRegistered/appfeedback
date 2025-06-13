@@ -1,0 +1,73 @@
+Movie Index - Overview
+
+    Description: Movie Index is your personal movie database creator! Organize and share video files from your computer within a VPN, private network, or local network with family and friends.
+
+    Supported Formats: .mp3, .mp4, .webm, .aac, .ogg, .opus, .wav, .m4a, .3gp, .aiff, .au, and .amr. If your browser does not support certain formats, those files will be automatically downloaded, allowing you to play them with another player, such as VLC. If you have VLC Player and VLC playlists, you can download and play them directly from Movie Index as well.
+
+    Additional Features:
+        If you save an image in formats like .jpg, .jpeg, .gif, .png, .webp, or .bmp with the same name as your video file, that image will be displayed alongside the video file.
+        The HTML structure mirrors your hard drive's directory structure.
+        You can hide specific directories by renaming them with the extension "_no order _private". These directories will be excluded.
+        Each time you launch Movie Index, you specify your drive, and your HTML network is created/updated. Changes to your directory structure or movie files are automatically reflected on startup.
+        The search function provides more results with fewer characters entered.
+        A list of your networks will be displayed. With a WebSocket extension for your internet browser, you can send messages to the server and all clients.
+        Use the CleanIndex option to completely remove the created HTML structure when you stop using Movie Index.
+        You can easily change the styles.css, background.mp4, and all sound output to your liking.
+
+Installation Instructions
+
+    Download: Download the MovieIndex Package (MovieIndex.rar).
+    Extract: Unpack the .rar file using a RAR extraction tool.
+    Install: Run MovieIndex Installer.exe with administrator rights. If the program closes immediately after opening via the shortcut, manually set administrator rights for CleanIndex.exe, CleanUP.exe, and Movie Index.exe in the installation directory ("C:\Program Files (x86)\Movie Index").
+
+Running the Program
+
+    Movie Index Server (Host):
+        Double-click the "Movie Index Server" icon, or use the shortcut.
+        Enter your VPN or localhost IP address and press Enter.
+        Enter the working directory where you want to create the movie index. (Movie files are read only from subdirectories of this main directory. For example, if D:\ is the main directory, movie files in subdirectories of D:\ will be included.)
+        Movie Index will open in your browser.
+
+    Movie Index Visitors:
+        Double-click the "Movie Index Visitors" icon or use the shortcut.
+        Enter the VPN or localhost IP address provided by the Host-User and press Enter.
+        Movie Index will open in your browser.
+
+    Movie Index CleanUp:
+        Double-click the "Movie Index CleanUp" icon or use the shortcut.
+        A prompt will appear: "Do you want to clean up the Movie Index immediately? (Y/N)"
+        If you choose "No," the CleanIndex-Server will start after 20 seconds.
+        Press Y for Yes or N for No. The cleanup process can be used on Movie Index as a host user only. CleanUp always uses the last directory path you used to create the Movie Index.
+
+VLC Playlists (Host User Only)
+
+    Creating Playlists: Use VLC Player in your movie series directory to create your own VLC playlists. This is ideal for watching multiple movies or TV series episodes in succession.
+
+    Adding Playlists from Other Drives: If you have movies/TV series on another drive not included in Movie Index, create a VLC playlist there and copy it to the ".My VLC PlayLists" directory created by Movie Index.
+
+    Including Images: To include an image with your playlist, ensure the image file has the same name as your VLC playlist file, and Movie Index will incorporate it.
+
+    Accessing Playlists:
+        Install VLC Media Player.
+        Create a VLC playlist and copy it to the "/.My VLC PlayLists" directory.
+        On the Movie Index webpage, click on the label and then on your VLC Playlist here on the web page ".My VLC PlayLists" to access your VLC playlists.
+        A download will begin in your browser; once the file has downloaded, click on it to open it in VLC Player.
+        The downloaded file will be automatically deleted from your downloads folder after 20 seconds.
+
+    Important Notes:
+        The downloaded file will be removed from the user’s downloads folder after 20 seconds.
+        Ensure that all files have the extension .xspf. If you are not quick enough, you will need to repeat this process.
+
+Sharing Playlists with Remote Users
+
+    This is only applicable to VLC playlists created in the Movie Index directory.
+    Share the drive containing the Movie Index on your local network.
+    The remote user must map this shared drive with the same drive letter as the host user. Once this is done, they will be able to play the VLC playlists, as the file paths will match those of the host user.
+
+Enjoy creating and sharing your online movie collection with Movie Index!
+
+Thank you for using Movie Index!
+
+For feedback, please visit: https://onlyregistered.github.io/appfeedback/
+
+This software is provided for free for personal and non-commercial use. You may share the compiled application, but the source code is not available for public use or redistribution. All rights reserved.
