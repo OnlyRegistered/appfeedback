@@ -11,22 +11,17 @@ All of our projects are currently designed exclusively for MS Windows; however, 
 
 2. **Only Talk**  
    A voice connection especially for gamer, supporting 6-10 users together in one connection.
-3. **File Finder Tool**  
-   A program that searches your hard drive or specific locations to find duplicate files for deletion.
 
-4. **Clean Hard Drive**  
-   A tool to clean up specific files in your system that you no longer need.
-
-5. **Image Index**  
+3. **Image Index**  
    An HTML creator that searches a specified directory for image files and generates an HTML page.
 
-6. **Music Index**  
+4. **Music Index**  
    An HTML creator that scans for audio files (like .mp3 and .mp4) and builds a music library that can be accessed online.
 
-7. **Movie Index**  
+5. **Movie Index**  
    A program similar to Music Index, but for video files. It creates an HTML page to serve your movies and videos online.
 
-8. **Simple Video Conference**  
+6. **Simple Video Conference**  
    A video conferencing tool without the advertising and restrictions found in platforms like Skype and Zoom.
 
 ## Support Our Projects
