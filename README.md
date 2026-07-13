@@ -1,33 +1,39 @@
-# Our Software Development and Projects
+# Software Development and Projects
 
-We are a small group of passionate developers dedicated to creating free software products. You can access our public repository. Under the "Main" section, navigate to "Software Downloads," where you will find our projects along with their descriptions.
+Welcome to **Spaxsum™** - OnlyRegistered. 
 
-All of our projects are currently designed exclusively for MS Windows; however, we plan to expand this in the future. The applications can be installed using the `Program-install.exe` file, and they are packaged as downloadable `.rar` files.
+We are a small group of passionate developers dedicated to creating free, high-quality software for Microsoft Windows. Our goal is to build practical, easy-to-use applications that help simplify everyday tasks while remaining freely available to everyone.
 
-**[Projects](https://onlyregistered.github.io/appfeedback/projects.images.html)**
-**[Downloads](https://onlyregistered.itch.io/)**
-1. **PC Tools**  
-   Small, miscellaneous programs that make everyday tasks easier.
+You can browse our public repository by selecting the **Main** section and navigating to **Software Downloads**, where you'll find our projects together with descriptions, screenshots, and download links.
 
-2. **Only Talk**  
-   A voice connection especially for gamer, supporting 6-10 users together in one connection.
+At present, all of our applications are developed exclusively for **Microsoft Windows**. We hope to support additional platforms in future releases.
 
-3. **Image Index**  
-   An HTML creator that searches a specified directory for image files and generates an HTML page.
+Applications are distributed as downloadable **.zip** or **.rar** archives and can be installed using the included **Program-install.exe** installer.
 
-4. **Music Index**  
-   An HTML creator that scans for audio files (like .mp3 and .mp4) and builds a music library that can be accessed online.
+## Explore Our Software
 
-5. **Movie Index**  
-   A program similar to Music Index, but for video files. It creates an HTML page to serve your movies and videos online.
+**[Projects](https://onlyregistered.itch.io/)**
 
-6. **Simple Video Conference**  
-   A video conferencing tool without the advertising and restrictions found in platforms like Skype and Zoom.
+**[Official Downloads](https://onlyregistered.itch.io/)**
 
 ## Support Our Projects
 
-As we strive to keep our projects alive, we find ourselves in need of support to continue our journey. While we are not an organization, we are committed to our mission and would be grateful for any contributions that help us sustain our efforts. If you appreciate our work and wish to support us, you can do so through the following options:
+If you enjoy using our software and would like to support future development, your contribution helps us continue creating free applications for the community.
 
-We appreciate your support! You can contribute via **[PayPal](https://onlyregistered.github.io/appfeedback/payment.options.html)** or **[Cryptocurrency](https://onlyregistered.github.io/appfeedback/payment.options.html)**.
+Although we are not a commercial company or organization, every donation—large or small—is greatly appreciated.
 
-We also welcome your ideas and suggestions! Please share your thoughts with us through our contact form or email.
+You can support us through:
+
+**[PayPal](https://onlyregistered.github.io/appfeedback/)**
+
+**[Cryptocurrency](https://onlyregistered.github.io/appfeedback/payment.options.html)**
+
+## Feedback
+
+**[Contact Form](https://onlyregistered.github.io/appfeedback/)**
+
+We always welcome bug reports, feature requests, ideas, and general feedback.
+
+If you have suggestions for improving one of our applications, please use our contact form or send us an email. Your feedback helps us improve our software and create better applications for everyone.
+
+Thank you for visiting and supporting **Spaxsum™**.
