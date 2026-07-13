@@ -16,7 +16,7 @@ Applications are distributed as downloadable **.zip** or **.rar** archives and c
 
 **[Official Downloads](https://onlyregistered.itch.io/)**
 
-**[Internet Archive](https://archive.org/search?query=spaxsum&tab=all)**
+**[Internet Archive](https://archive.org/details/@spaxsum_)**
 
 **[Payhip](https://payhip.com/Spaxsum)**
 
