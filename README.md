@@ -12,9 +12,29 @@ Applications are distributed as downloadable **.zip** or **.rar** archives and c
 
 ## Explore Our Software
 
-**[Projects](https://onlyregistered.itch.io/)**
+**[Projects](https://onlyregistered.github.io/appfeedback/projects.images.html)**
 
 **[Official Downloads](https://onlyregistered.itch.io/)**
+
+**[Internet Archive](https://archive.org/search?query=spaxsum&tab=all)**
+
+**[Payhip](https://payhip.com/Spaxsum)**
+
+## Currently in Development
+
+The following projects are actively under development and are not yet publicly released.
+
+Playlist Index Manager
+
+A desktop application that scans music collections, automatically searches for matching YouTube videos, and helps create and manage playlists more efficiently.
+
+Status: 🚧 In Development
+
+Hotspot Toggle
+
+A lightweight Windows utility that allows users to quickly enable or disable the Windows Mobile Hotspot with a single click.
+
+Status: 🚧 In Development 
 
 ## Support Our Projects
 
