@@ -18,141 +18,327 @@
 
     <style>
 
-        body{
-            margin:0;
-            padding:0;
-            background:#eef2f5;
-            color:#333;
-            font-family:Arial, Helvetica, sans-serif;
-            font-size:16px;
-            line-height:1.6;
-        }
+    body {
 
-        .container{
-            max-width:900px;
-            margin:40px auto;
-            padding:25px;
-        }
+    font-family: Segoe UI, Arial, sans-serif;
+    background:#202124;
+    color:#ffffff;
+    margin:0;
+    padding:5px;
+    box-sizing:border-box;
+    overflow-x:hidden;
 
-        h1{
-            color:#2c3e50;
-            font-size:42px;
-            margin-bottom:5px;
-        }
+}
 
-        h2{
-            color:#2c3e50;
-            margin-top:40px;
-            margin-bottom:10px;
-        }
 
-        h3{
-            color:#2c3e50;
-            margin-top:35px;
-            margin-bottom:10px;
-        }
+*,
+*::before,
+*::after {
 
-        .subtitle{
-            color:#666;
-            font-size:20px;
-            margin-top:0;
-            margin-bottom:25px;
-        }
+    box-sizing:inherit;
 
-        p{
-            margin-bottom:18px;
-        }
+}
 
-        ul{
-            margin-bottom:25px;
-        }
 
-        li{
-            margin:8px 0;
-        }
+/* ==========================
+   CONTAINER
+========================== */
 
-        a{
-            color:#2c3e50;
-            text-decoration:none;
-            transition:0.2s;
-        }
+.container {
 
-        a:hover{
-            text-decoration:underline;
-            color:#1a242f;
-        }
+    max-width:900px;
 
-        form{
-            background:#ffffff;
-            max-width:700px;
-            margin:30px auto;
-            padding:25px;
-            border-radius:8px;
-            box-shadow:0 2px 10px rgba(0,0,0,0.12);
-        }
+    margin:40px auto;
 
-        label{
-            display:block;
-            font-weight:bold;
-            margin-bottom:6px;
-        }
+    padding:25px;
 
-        input,
-        select,
-        textarea{
-            width:100%;
-            box-sizing:border-box;
-            padding:10px;
-            margin-top:6px;
-            margin-bottom:18px;
-            border:1px solid #ccc;
-            border-radius:5px;
-            font-size:15px;
-            font-family:Arial, Helvetica, sans-serif;
-        }
+}
 
-        textarea{
-            resize:vertical;
-            min-height:140px;
-        }
 
-        button{
-            width:100%;
-            background:#2c3e50;
-            color:#fff;
-            border:none;
-            border-radius:5px;
-            padding:13px;
-            font-size:16px;
-            font-weight:bold;
-            cursor:pointer;
-            transition:0.2s;
-        }
+/* ==========================
+   HEADINGS
+========================== */
 
-        button:hover{
-            background:#1a242f;
-        }
+h1 {
 
-        #contact-link{
-            display:inline-block;
-            margin-bottom:20px;
-            font-size:13px;
-            font-weight:bold;
-        }
+    color:#4fc3f7;
 
-        hr{
-            margin-top:50px;
-            border:0;
-            border-top:1px solid #d7d7d7;
-        }
+    font-size:42px;
 
-        footer{
-            text-align:center;
-            color:#777;
-            font-size:13px;
-            padding:20px 0;
-        }
+    margin-bottom:5px;
 
+}
+
+
+h2 {
+
+    color:#4fc3f7;
+
+    margin-top:40px;
+
+    margin-bottom:10px;
+
+}
+
+
+h3 {
+
+    color:#4fc3f7;
+
+}
+
+
+.subtitle {
+
+    color:#aaaaaa;
+
+    font-size:20px;
+
+    margin-top:0;
+
+    margin-bottom:25px;
+
+}
+
+
+/* ==========================
+   TEXT
+========================== */
+
+p {
+
+    color:#dddddd;
+
+    margin-bottom:18px;
+
+}
+
+
+strong {
+
+    color:#ffffff;
+
+}
+
+
+/* ==========================
+   LISTS
+========================== */
+
+ul {
+
+    margin-bottom:25px;
+
+}
+
+
+li {
+
+    margin:8px 0;
+
+    color:#dddddd;
+
+}
+
+
+/* ==========================
+   LINKS
+========================== */
+
+a {
+
+    color:#4fc3f7;
+
+    text-decoration:none;
+
+    transition:.2s;
+
+}
+
+
+a:hover {
+
+    text-decoration:underline;
+
+    color:#1590f0;
+
+}
+
+
+/* ==========================
+   CONTACT FORM
+========================== */
+
+form {
+
+    background:#252526;
+
+    border:1px solid #3c3c3c;
+
+    max-width:700px;
+
+    margin:30px auto;
+
+    padding:25px;
+
+    border-radius:8px;
+
+}
+
+
+label {
+
+    display:block;
+
+    font-weight:bold;
+
+    color:#ffffff;
+
+    margin-bottom:6px;
+
+}
+
+
+/* ==========================
+   INPUTS
+========================== */
+
+input,
+select,
+textarea {
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:10px;
+
+    margin-top:6px;
+
+    margin-bottom:18px;
+
+    background:#1e1e1e;
+
+    color:white;
+
+    border:1px solid #555;
+
+    border-radius:4px;
+
+    font-size:15px;
+
+    font-family:Segoe UI, Arial, sans-serif;
+
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+
+    outline:none;
+
+    border-color:#0078d7;
+
+}
+
+
+/* ==========================
+   TEXTAREA
+========================== */
+
+textarea {
+
+    resize:vertical;
+
+    min-height:140px;
+
+}
+
+
+/* ==========================
+   BUTTON
+========================== */
+
+button {
+
+    width:100%;
+
+    background:#0078d7;
+
+    color:white;
+
+    border:none;
+
+    border-radius:4px;
+
+    padding:13px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+
+button:hover {
+
+    background:#1590f0;
+
+}
+
+
+/* ==========================
+   EMAIL FALLBACK LINK
+========================== */
+
+#contact-link {
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+/* ==========================
+   DIVIDERS
+========================== */
+
+hr {
+
+    margin-top:50px;
+
+    border:0;
+
+    border-top:1px solid #3c3c3c;
+
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:13px;
+
+    padding:20px 0;
+
+}
     </style>
 
 </head>
