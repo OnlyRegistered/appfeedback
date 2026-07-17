@@ -12,115 +12,275 @@
 <style>
 
 body{
+    font-family: Segoe UI, Arial, sans-serif;
+    background:#202124;
+    color:#ffffff;
     margin:0;
-    padding:0;
-    background:#eef2f5;
-    color:#333;
-    font-family:Arial, Helvetica, sans-serif;
-    line-height:1.6;
+    padding:5px;
+    box-sizing:border-box;
+    overflow-x:hidden;
 }
+
+
+*,
+*::before,
+*::after{
+    box-sizing:inherit;
+}
+
 
 .container{
+
     max-width:900px;
-    margin:40px auto;
-    padding:25px;
+    margin:auto;
+
 }
 
 
-h1,
-h2,
-h3,
-h4{
-    color:#2c3e50;
-}
+/* ==========================
+   HEADINGS
+========================== */
 
 
 h1{
+
+    margin-top:0;
     text-align:center;
+    color:#4fc3f7;
     font-size:38px;
+
 }
 
 
-h2{
-    margin-top:35px;
+h2,
+h3,
+h4{
+
+    color:#4fc3f7;
+
 }
 
 
-a{
-    color:#2c3e50;
-    text-decoration:none;
-    font-weight:bold;
+p{
+
+    color:#dddddd;
+
 }
 
 
-a:hover{
-    text-decoration:underline;
+.subtitle{
+
+    color:#aaaaaa;
+
 }
 
 
-.box{
 
-    background:#fff;
+/* ==========================
+   PANELS
+========================== */
+
+
+.box,
+.crypto{
+
+    background:#252526;
+
+    border:1px solid #3c3c3c;
+
     padding:20px;
+
     border-radius:8px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+
     margin-top:20px;
 
 }
 
 
+
+/* ==========================
+   LINKS
+========================== */
+
+
+a{
+
+    color:#4fc3f7;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+
+a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+
+/* ==========================
+   PAYPAL BUTTON
+========================== */
+
+
 .paypal-link{
 
     display:inline-block;
-    background:#2c3e50;
+
+    background:#0078d7;
+
     color:white;
+
     padding:12px 20px;
-    border-radius:5px;
+
+    border-radius:4px;
+
+    margin-top:10px;
+
+    transition:.2s;
 
 }
 
 
 .paypal-link:hover{
 
-    background:#1a242f;
+    background:#1590f0;
+
     text-decoration:none;
 
 }
 
 
+
+/* ==========================
+   QR
+========================== */
+
+
 .qr{
 
     width:180px;
+
     margin-top:20px;
 
-}
-
-
-.crypto{
-
     background:white;
-    padding:20px;
+
+    padding:10px;
+
     border-radius:8px;
 
 }
 
 
+
+/* ==========================
+   CRYPTO ADDRESS
+========================== */
+
+
 .address{
 
+    display:block;
+
     word-break:break-all;
-    background:#f5f5f5;
-    padding:10px;
-    border-radius:5px;
+
+    background:#1e1e1e;
+
+    color:#9cdcfe;
+
+    border:1px solid #555;
+
+    padding:12px;
+
+    border-radius:4px;
+
+    margin-top:6px;
+
+    font-family:Consolas, monospace;
 
 }
+
+
+
+/* ==========================
+   DONATION LIST
+========================== */
+
+
+ul{
+
+    background:#252526;
+
+    border:1px solid #3c3c3c;
+
+    border-radius:8px;
+
+    padding:20px 40px;
+
+}
+
+
+li{
+
+    color:#ffffff;
+
+    padding:5px;
+
+}
+
+
+
+/* ==========================
+   FOOTER
+========================== */
 
 
 footer{
 
     text-align:center;
-    color:#777;
+
+    color:#888;
+
     font-size:13px;
+
     margin-top:40px;
+
+}
+
+
+
+/* ==========================
+   MOBILE
+========================== */
+
+
+@media(max-width:600px){
+
+
+    body{
+
+        padding:15px;
+
+    }
+
+
+    h1{
+
+        font-size:28px;
+
+    }
+
+
+    .qr{
+
+        width:150px;
+
+    }
+
 
 }
 
