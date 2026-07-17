@@ -13,103 +13,172 @@
 
 <style>
 
-body{
-    margin:0;
-    padding:0;
-    background:#eef2f5;
-    color:#333;
-    font-family:Arial, Helvetica, sans-serif;
-    line-height:1.6;
+body {
+    font-family: Segoe UI, Arial, sans-serif;
+    background: #202124;
+    color: #ffffff;
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
 }
 
 
-.container{
+/* ==========================
+   MAIN CONTAINER
+========================== */
 
-    max-width:900px;
-    margin:40px auto;
-    padding:25px;
+.container {
+
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 25px;
 
 }
 
+
+/* ==========================
+   HEADINGS
+========================== */
 
 h1,
 h2,
-h3{
+h3 {
 
-    color:#2c3e50;
-
-}
-
-
-h1{
-
-    text-align:center;
-    font-size:40px;
+    color: #4fc3f7;
 
 }
 
 
-.subtitle{
+h1 {
+
+    text-align: center;
+    font-size: 40px;
+    margin-top:0;
+
+}
+
+
+.subtitle {
 
     text-align:center;
-    color:#666;
+    color:#aaaaaa;
     font-size:20px;
 
 }
 
 
-.box{
+/* ==========================
+   PROJECT PANELS
+========================== */
 
-    background:white;
+.box {
+
+    background:#252526;
+
+    border:1px solid #3c3c3c;
+
     padding:25px;
+
     border-radius:8px;
-    box-shadow:0 2px 10px rgba(0,0,0,0.12);
+
     margin-top:30px;
+
+    box-shadow:none;
 
 }
 
 
-a{
+.box p {
 
-    color:#2c3e50;
+    color:#dddddd;
+
+}
+
+
+/* ==========================
+   LINKS
+========================== */
+
+a {
+
+    color:#4fc3f7;
+
     text-decoration:none;
+
     font-weight:bold;
 
 }
 
 
-a:hover{
+a:hover {
 
     text-decoration:underline;
 
 }
 
 
-.download-button{
+/* ==========================
+   DOWNLOAD BUTTON
+========================== */
+
+.download-button {
 
     display:inline-block;
-    background:#2c3e50;
+
+    background:#0078d7;
+
     color:white;
+
     padding:12px 25px;
+
     border-radius:5px;
+
     margin-top:15px;
+
+    transition:.2s;
 
 }
 
 
-.download-button:hover{
+.download-button:hover {
 
-    background:#1a242f;
+    background:#1590f0;
+
     text-decoration:none;
 
 }
 
 
-footer{
+/* ==========================
+   CONTACT
+========================== */
+
+.box a {
+
+    color:#4fc3f7;
+
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer {
 
     text-align:center;
+
     color:#777;
+
     font-size:13px;
+
     margin-top:40px;
 
 }
