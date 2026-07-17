@@ -12,7 +12,7 @@ Applications are distributed as downloadable **.zip** or **.rar** archives and c
 
 ## Explore Our Software
 
-**[Projects](https://onlyregistered.github.io/appfeedback/projects.images.html)**
+**[Projects](https://onlyregistered.github.io/appfeedback/projects.html)**
 
 **[Official Downloads](https://onlyregistered.itch.io/)**
 
