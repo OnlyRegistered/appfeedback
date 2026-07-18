@@ -44,13 +44,13 @@ Although we are not a commercial company or organization, every donation—large
 
 You can support us through:
 
-**[PayPal](https://onlyregistered.github.io/appfeedback/)**
+**[PayPal](https://www.paypal.com/donate/?hosted_button_id=AJ2RGELHZG6F6)**
 
-**[Cryptocurrency](https://onlyregistered.github.io/appfeedback/payment.options.html)**
+**[Cryptocurrency](https://onlyregistered.github.io/appfeedback/support.html#crypto)**
 
 ## Feedback
 
-**[Contact Form](https://onlyregistered.github.io/appfeedback/)**
+**[Contact Form](https://onlyregistered.github.io/appfeedback/#feedback)**
 
 We always welcome bug reports, feature requests, ideas, and general feedback.
 
