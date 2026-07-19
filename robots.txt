@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onlyregistered.github.io/appfeedback/sitemap.xml
