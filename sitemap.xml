@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Description: Main website homepage -->
+  <url>
+    <loc>https://onlyregistered.github.io/appfeedback/</loc>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+
+  <!-- Description: Projects overview page -->
+  <url>
+    <loc>https://onlyregistered.github.io/appfeedback/projects.html</loc>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+
+  <!-- Description: Feedback page -->
+<url>
+  <loc>https://onlyregistered.github.io/appfeedback/feedback.html</loc>
+  <lastmod>2026-07-21</lastmod>
+</url>
+
+  <!-- Description: Support and contact page -->
+  <url>
+    <loc>https://onlyregistered.github.io/appfeedback/support.html</loc>
+    <lastmod>2026-07-21</lastmod>
+  </url>
+
+</urlset>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>OnlyRegistered Feedback</title>
+
+    <meta name="description" content="Share your feedback, suggestions, and reports with OnlyRegistered. Help improve our projects and applications.">
+
+    <style>
+        html, body {
+            background: #252526;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Segoe UI, Arial, sans-serif;
+        }
+
+        .loading {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #0078d7
+        }
+
+        .loading span {
+            color: #4fc3f7;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+
+    <script>
+        setTimeout(function () {
+            window.location.replace(
+                "https://onlyregistered.github.io/appfeedback/#feedback"
+            );
+        }, 50);
+    </script>
+
+</head>
+
+<body>
+
+    <div class="loading">
+        <div>
+            Loading Feedback...
+        </div>
+
+        <span>
+            Please wait
+        </span>
+    </div>
+
+</body>
+</html>
