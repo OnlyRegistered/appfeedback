@@ -4,7 +4,7 @@ Welcome to **Spaxsum™** - OnlyRegistered.
 
 We are a small group of passionate developers dedicated to creating free, high-quality software for Microsoft Windows. Our goal is to build practical, easy-to-use applications that help simplify everyday tasks while remaining freely available to everyone.
 
-You can browse our public repository by selecting the **Main** section and navigating to **Software Downloads**, where you'll find our projects together with descriptions, screenshots, and download links.
+You can browse our at [itch.io](https://onlyregistered.itch.io/), where you'll find our projects together with descriptions, screenshots, and download links.
 
 At present, all of our applications are developed exclusively for **Microsoft Windows**. We hope to support additional platforms in future releases.
 
