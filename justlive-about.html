@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>JustLive - Zombie Survival Experience</title>
+
+<meta name="description" content="JustLive is a multiplayer zombie survival game focused on survival, exploration, and player-driven stories.">
+  
+  <link rel="canonical" href="https://onlyregistered.github.io/appfeedback/justlive-about.html">
+  
+  <meta name="robots" content="index,follow">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://onlyregistered.github.io/appfeedback/favicon.ico" type="image/ico">
+    <link rel="icon" href="https://onlyregistered.github.io/appfeedback/assets/favicon-32.png" sizes="32x32" type="image/png">
+    <link rel="apple-touch-icon" href="https://onlyregistered.github.io/appfeedback/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <meta name="astro-view-transitions-enabled" content="true">
+    <meta name="astro-view-transitions-fallback" content="animate">
+  
+<meta property="og:title" content="JustLive - Zombie Survival Experience">
+<meta property="og:description" content="JustLive is a multiplayer zombie survival game focused on survival, exploration, and player-driven stories.">
+<meta property="og:image" content="https://onlyregistered.github.io/appfeedback/assets/preview.png">
+<meta property="og:url" content="https://onlyregistered.github.io/appfeedback/justlive-about.html">
+<meta property="og:type" content="website">
+
+    <meta name="twitter:card"
+          content="summary_large_image">
+
+    <meta name="twitter:title"
+          content="JustLive - Zombie Survival Experience">
+
+    <meta name="twitter:description"
+          content="JustLive is a multiplayer zombie survival game focused on survival, exploration, and player-driven stories.">
+
+    <meta name="twitter:image"
+          content="https://onlyregistered.github.io/appfeedback/assets/preview.png">
+    
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+  "@type": "WebPage",
+  "@id": "https://onlyregistered.github.io/appfeedback/",
+  "url": "https://onlyregistered.github.io/appfeedback/justlive-about.html",
+  "name": "JustLive - Zombie Survival Experience",
+  "description": "JustLive is a multiplayer zombie survival game focused on survival, exploration, and player-driven stories.",
+  "image": "https://onlyregistered.github.io/appfeedback/assets/preview.png",
+  "dateModified": "2026-07-18T13:12:40.434Z"
+}
+  ]
+}
+</script>
+
+<style>
+
+body {
+
+    font-family: Segoe UI, Arial, sans-serif;
+
+    background:#202124;
+
+    color:white;
+
+    margin:0;
+
+    padding:25px;
+
+}
+
+
+*,
+*::before,
+*::after {
+
+    box-sizing:border-box;
+
+}
+
+
+/* ==========================
+   HEADER
+========================== */
+
+
+.header {
+
+    background:#252526;
+
+    border:1px solid #3c3c3c;
+
+    border-radius:8px;
+
+    padding:30px;
+
+    margin-bottom:20px;
+
+}
+
+
+.logo {
+
+    color:#4fc3f7;
+
+    font-size:38px;
+
+    font-weight:bold;
+
+}
+
+
+.tagline {
+
+    color:#aaaaaa;
+
+    font-size:18px;
+
+    margin-top:10px;
+
+}
+
+
+
+/* ==========================
+   LAYOUT
+========================== */
+
+
+.app {
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:flex-start;
+
+}
+
+
+
+/* ==========================
+   SIDEBAR
+========================== */
+
+
+.sidebar {
+
+    width:230px;
+
+    flex-shrink:0;
+
+    background:#252526;
+
+    border:1px solid #3c3c3c;
+
+    border-radius:8px;
+
+    padding:15px;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+.sidebar a {
+
+    text-decoration:none;
+
+    display:block;
+
+}
+
+
+.sidebar h3 {
+
+    color:#4fc3f7;
+
+}
+
+
+.sidebar button {
+
+
+    width:100%;
+
+
+    background:#1e1e1e;
+
+
+    color:white;
+
+
+    border:1px solid #555;
+
+
+    border-radius:4px;
+
+
+    padding:10px;
+
+
+    margin-top:10px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.sidebar button:hover {
+
+
+    background:#0078d7;
+
+
+}
+
+/* ==========================
+   MAIN
+========================== */
+
+
+.main {
+
+    flex:1;
+
+}
+
+
+.panel {
+
+
+    background:#252526;
+
+
+    border:1px solid #3c3c3c;
+
+
+    border-radius:8px;
+
+
+    padding:25px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+h1 {
+
+    color:#4fc3f7;
+
+}
+
+
+h2 {
+
+    color:#4fc3f7;
+
+}
+
+
+h3 {
+
+    color:white;
+
+}
+
+
+p {
+
+    color:#dddddd;
+
+    line-height:1.7;
+
+}
+
+
+
+/* ==========================
+   HERO
+========================== */
+
+
+.hero {
+
+
+    background:#1e1e1e;
+
+
+    border:1px solid #0078d7;
+
+
+}
+
+
+
+.hero h1 {
+
+
+    font-size:42px;
+
+
+}
+
+
+
+
+/* ==========================
+   GRID
+========================== */
+
+
+.grid {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(220px,1fr));
+
+
+    gap:15px;
+
+
+}
+
+
+
+.card {
+
+
+    background:#1e1e1e;
+
+
+    border:1px solid #444;
+
+
+    border-radius:8px;
+
+
+    padding:18px;
+
+
+}
+
+
+
+.card:hover {
+
+
+    border-color:#0078d7;
+
+
+}
+
+
+
+.card-title {
+
+
+    color:#4fc3f7;
+
+
+    font-size:18px;
+
+
+    font-weight:bold;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+
+/* ==========================
+   STATUS BOX
+========================== */
+
+
+.status {
+
+
+    background:#1e1e1e;
+
+
+    border-left:4px solid #0078d7;
+
+
+}
+
+
+
+/* ==========================
+   BUTTON
+========================== */
+
+
+.button {
+
+
+    display:inline-block;
+
+
+    background:#0078d7;
+
+
+    color:white;
+
+
+    padding:13px 25px;
+
+
+    border-radius:5px;
+
+
+    text-decoration:none;
+
+
+    margin-top:15px;
+
+
+}
+
+
+
+.button:hover {
+
+
+    background:#1590f0;
+
+
+}
+
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+
+.footer {
+
+
+    text-align:center;
+
+
+    color:#777;
+
+
+    margin-top:30px;
+
+
+    font-size:12px;
+
+
+}
+
+.to-top.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.to-top:hover{background:var(--or-accent-hover)}
+
+</style>
+
+</head>
+<body>
+
+<div class="header">
+
+<div class="logo">
+JustLive
+</div>
+
+<div class="tagline">
+A new generation zombie survival experience
+</div>
+
+</div>
+
+<div class="app">
+
+<div class="sidebar">
+
+<h3>
+JustLive
+</h3>
+
+<a href="#vision">
+<button>
+The Vision Behind JustLive
+</button>
+</a>
+
+<a href="#focus">
+<button>
+Our Focus
+</button>
+</a>
+
+<a href="#core">
+<button>
+Core Experience
+</button>
+</a>
+
+<a href="#infection">
+<button>
+The Infection
+</button>
+</a>
+
+<a href="#development">
+<button>
+Development Status
+</button>
+</a>
+
+<a href="https://onlyregistered.github.io/appfeedback/justlive-development.html">
+<button>
+Follow The Journey
+</button>
+</a>
+
+<a href="https://onlyregistered.github.io/appfeedback/#feedback">
+<button>
+Feedback
+</button>
+</a>
+
+<a href="https://onlyregistered.github.io/appfeedback">
+<button>
+Back Home
+</button>
+</a>
+
+</div>
+
+<div class="main">
+
+    <!-- HERO -->
+<div class="panel hero">
+
+<h1>
+Survive.<br>
+Adapt.<br>
+Become Human Again.
+</h1>
+
+<p>
+JustLive is a multiplayer zombie survival game focused on survival,
+exploration, and player-driven stories.
+</p>
+
+<p>
+In a world where humanity is fighting for its last chance,
+every decision matters.
+
+Players must adapt, cooperate, and survive in an unpredictable
+environment where danger can come from anywhere.
+</p>
+
+</div>
+
+<!-- VISION -->
+<div class="panel" id="vision">
+
+<h2>
+The Vision Behind JustLive
+</h2>
+
+<h3>
+Building a Living Survival World
+</h3>
+
+<p>
+JustLive is more than a traditional zombie survival game.
+</p>
+
+<p>
+Our vision is to create a world where players feel that every action has meaning.
+A place where survival is not only about collecting resources,
+but about choices, teamwork, exploration, and adapting to an ever-changing environment.
+</p>
+
+<p>
+We want to create a multiplayer experience where players can build their own stories
+and where every journey feels different.
+</p>
+
+<p>
+The development of JustLive will happen step by step.
+We are starting with the core systems and building a strong foundation using:
+<br><br>
+
+<strong>Unity 6</strong>
+</p>
+
+</div>
+
+<!-- FOCUS -->
+<div class="panel" id="focus">
+
+<h2>
+Our Focus
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-title">
+Believable Survival World
+</div>
+
+<p>
+Creating an environment that feels alive,
+unpredictable, and meaningful.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Multiplayer Experiences
+</div>
+
+<p>
+Developing systems where players can cooperate,
+communicate, and survive together.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Cooperation & Strategy
+</div>
+
+<p>
+Building systems that reward teamwork,
+planning, and smart decisions.
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Player-Shaped World
+</div>
+
+<p>
+Creating an environment where player actions
+help shape the experience.
+</p>
+
+</div>
+</div>
+</div>
+
+<!-- CORE -->
+<div class="panel" id="core">
+
+<h2>
+Core Experience
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="card-title">
+Zombie Survival
+</div>
+
+<p>
+Face infected threats and survive against
+a constantly changing world.
+</p>
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Exploration
+</div>
+
+<p>
+Discover abandoned places, resources,
+secrets, and new dangers.
+</p>
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Player Stories
+</div>
+
+<p>
+Create your own survival story through
+choices and cooperation.
+</p>
+</div>
+
+<div class="card">
+
+<div class="card-title">
+Multiplayer World
+</div>
+
+<p>
+Work together with other survivors
+or face the world alone.
+</p>
+
+</div>
+</div>
+</div>
+
+<!-- INFECTION -->
+<div class="panel" id="infection">
+
+<h2>
+The Infection
+</h2>
+
+<p>
+In JustLive, infection is not simply the end.
+</p>
+
+<p>
+A survivor can lose their humanity,
+become infected,
+and fight for a way back.
+</p>
+
+<p>
+The infection becomes part of the survival story.
+</p>
+</div>
+
+<!-- DEVELOPMENT -->
+<div class="panel status" id="development">
+
+<h2>
+Development Status
+</h2>
+
+<p>
+JustLive is currently in the early development phase.
+</p>
+
+<p>
+The foundation of the game is being built using:
+<br><br>
+<strong>Unity 6</strong>
+</p>
+
+<p>
+More details about gameplay systems and unique features
+will be revealed during development.
+</p>
+</div>
+
+<!-- JOURNEY -->
+<div class="panel">
+
+<h2>
+Follow The Journey
+</h2>
+
+<p>
+If you are interested in following the project
+or becoming part of the development journey,
+contact us through the feedback section.
+</p>
+
+<a class="button"
+   href="https://onlyregistered.github.io/appfeedback/#feedback"
+   target="_blank"
+   rel="noopener noreferrer">
+    Contact JustLive
+</a>
+
+</div>
+</div>
+</div>
+
+<div class="footer">
+
+JustLive — A zombie survival game where infection is not the end.
+</div>
+
+<button id="to-top" class="to-top" aria-label="Back to top" type="button">↑</button>
+
+<script>
+document.addEventListener("click", function (e) {
+
+    const topButton = e.target.closest("#to-top");
+
+    if (topButton) {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+});
+
+window.addEventListener("scroll", function () {
+
+    const b = document.getElementById("to-top");
+    if (!b) return;
+
+    b.classList.toggle("show", window.scrollY > 600);
+
+}, { passive: true });
+</script>
+
+</body>
+</html>
