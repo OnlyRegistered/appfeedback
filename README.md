@@ -50,11 +50,8 @@ A multiplayer zombie survival game focused on exploration, cooperation, and play
 
 If you enjoy our software and would like to support future development, you can help through:
 
-- PayPal
-  https://www.paypal.com/donate/?hosted_button_id=AJ2RGELHZG6F6
-  
-- Cryptocurrency
-  https://onlyregistered.github.io/appfeedback/support.html#crypto
+- [PayPal](https://www.paypal.com/donate/?hosted_button_id=AJ2RGELHZG6F6)
+- [Cryptocurrency](https://onlyregistered.github.io/appfeedback/support.html#crypto)
 
 Every contribution helps maintain existing projects and create new software.
 
