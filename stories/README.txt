@@ -1,11 +1,10 @@
-STORIES FOR LITTLE DREAMERS - WEBSITE
+STORIES FOR LITTLE DREAMERS - UPDATED WEBSITE
 
-1. Upload index.html, style.css and script.js to a folder on your website, for example /stories/.
-2. Create a subfolder called stories and upload your 12 MP3/PDF files into it.
-3. The exact filenames expected are listed in script.js. Names must match, including spaces, punctuation and capitalization (especially on Linux servers).
-4. In script.js, set CONTACT_FORM_URL to your existing website's contact form URL.
-5. Open /stories/index.html on your server. German and English language buttons switch the text and file links.
+Upload index.html, style.css, script.js, and the images folder into appfeedback/stories/.
+Keep the inner stories folder for your 12 existing MP3/PDF files. The inner stories folder must contain your real files, not a .keep file.
 
-This is a static website. It does not upload audio, host a form backend, or send messages itself. The Listen buttons use the browser's built-in MP3 player. The PDF buttons open a new tab; download buttons save the files.
+IMPORTANT: This ZIP does not contain MP3s or PDFs. Keep your existing files on GitHub. If you delete the inner stories folder, the audio and PDF links will stop working.
 
-Note: No actual story MP3/PDF files are included in this ZIP, because only a screenshot of the filenames was supplied for this request. Upload the existing files from your computer.
+Audio file names must match EXACTLY, including spaces and capitalization. To test, open an MP3 link directly in your browser.
+
+Suggested ages are MINIMUM ages, not age limits.
