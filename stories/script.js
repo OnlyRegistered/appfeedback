@@ -1,5 +1,7 @@
-/* Stories for Little Dreamers
-   Bilingual stories and Supabase counters
+/*
+  Stories for Little Dreamers
+  Bilingual stories, Supabase counters,
+  audio playback, downloads and sharing.
 */
 
 const CONTACT_FORM_URL =
@@ -15,9 +17,9 @@ const COUNTERS_ENABLED =
   Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
 
-// --------------------------------------------------
+// ================================================
 // STORIES
-// --------------------------------------------------
+// ================================================
 
 const stories = [
   {
@@ -85,8 +87,8 @@ const stories = [
 
     files: {
       de: {
-        mp3: 'Rafaels_Abenteuer,_Eine_vierjährige_Reise_nach_Hause.mp3',
-        pdf: 'Rafaels_Abenteuer,_Eine_vierjährige_Reise_nach_Hause.pdf'
+        mp3: 'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.mp3',
+        pdf: 'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.pdf'
       },
       en: {
         mp3: 'Rafaels_Adventures,_A_Four-Year_Journey_Home.mp3',
@@ -108,10 +110,19 @@ const stories = [
   }
 ];
 
+// Preserve the original German filenames.
+stories[2].files.de.mp3 =
+  'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.mp3'
+    .replaceAll(' ', '_');
 
-// --------------------------------------------------
+stories[2].files.de.pdf =
+  'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.pdf'
+    .replaceAll(' ', '_');
+
+
+// ================================================
 // TRANSLATIONS
-// --------------------------------------------------
+// ================================================
 
 const translations = {
   de: {
@@ -129,6 +140,9 @@ const translations = {
     read: '📖 PDF öffnen',
     download: '↓ Herunterladen',
     age: 'Empfohlen ab',
+    share: 'Teilen',
+    shareCopied: 'Link kopiert!',
+    shareCopy: 'Link kopieren',
 
     whyTitle: 'Mit Herz erzählt',
     whyText:
@@ -166,6 +180,9 @@ const translations = {
     read: '📖 Open PDF',
     download: '↓ Download',
     age: 'Suggested from age',
+    share: 'Share',
+    shareCopied: 'Link copied!',
+    shareCopy: 'Copy link',
 
     whyTitle: 'Stories told with heart',
     whyText:
@@ -180,7 +197,7 @@ const translations = {
       'You are welcome to read, download, listen to and share these stories for free. Please credit our collection when sharing.',
 
     contactLabel: 'Tell us your idea',
-    contactTitle: 'What story should we tell next?',
+    contactTitle: 'What story should we tell as our next story?',
     contactText:
       'Have a wish, a special experience, or a story idea? We would love to hear from you through the contact form on our main website.',
     contactButton: 'Go to contact form ↗',
@@ -190,9 +207,9 @@ const translations = {
 };
 
 
-// --------------------------------------------------
-// COUNTER SETTINGS
-// --------------------------------------------------
+// ================================================
+// LANGUAGE AND COUNTER SETTINGS
+// ================================================
 
 let language =
   localStorage.getItem('story-language') === 'en'
@@ -209,17 +226,22 @@ const metrics = [
 
 const counterCache = {};
 
-const counterKey = (storyId, lang) =>
-  `${storyId}_${lang}`;
+function counterKey(storyId, lang) {
+  return `${storyId}_${lang}`;
+}
 
 function counterText(value) {
-  return Number.isFinite(Number(value)) &&
-    value !== undefined &&
-    value !== null
-    ? Number(value).toLocaleString(
-        language === 'de' ? 'de-DE' : 'en-GB'
-      )
-    : '—';
+  if (
+    value === undefined ||
+    value === null ||
+    !Number.isFinite(Number(value))
+  ) {
+    return '—';
+  }
+
+  return Number(value).toLocaleString(
+    language === 'de' ? 'de-DE' : 'en-GB'
+  );
 }
 
 function counterLabels() {
@@ -241,9 +263,9 @@ function counterLabels() {
 }
 
 
-// --------------------------------------------------
+// ================================================
 // DISPLAY COUNTERS
-// --------------------------------------------------
+// ================================================
 
 function paintCounters() {
   for (const story of stories) {
@@ -256,16 +278,17 @@ function paintCounters() {
       );
 
       if (element) {
-        element.textContent = counterText(counts[metric]);
+        element.textContent =
+          counterText(counts[metric]);
       }
     });
   }
 }
 
 
-// --------------------------------------------------
+// ================================================
 // LOAD COUNTERS FROM SUPABASE
-// --------------------------------------------------
+// ================================================
 
 async function loadCounters() {
   if (!COUNTERS_ENABLED) return;
@@ -303,12 +326,15 @@ async function loadCounters() {
 }
 
 
-// --------------------------------------------------
+// ================================================
 // RECORD EVENTS
-// --------------------------------------------------
+// ================================================
 
 async function recordEvent(storyId, lang, metric) {
-  if (!COUNTERS_ENABLED || !metrics.includes(metric)) {
+  if (
+    !COUNTERS_ENABLED ||
+    !metrics.includes(metric)
+  ) {
     return;
   }
 
@@ -335,19 +361,16 @@ async function recordEvent(storyId, lang, metric) {
       `${SUPABASE_URL}/rest/v1/rpc/record_story_event`,
       {
         method: 'POST',
-
         headers: {
           apikey: SUPABASE_ANON_KEY,
           Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json'
         },
-
         body: JSON.stringify({
           p_story_id: storyId,
           p_language: lang,
           p_metric: metric
         }),
-
         keepalive: true
       }
     );
@@ -374,9 +397,9 @@ async function recordEvent(storyId, lang, metric) {
 }
 
 
-// --------------------------------------------------
+// ================================================
 // STORY VIEWS
-// --------------------------------------------------
+// ================================================
 
 function trackView(storyId, lang) {
   const key = `story-viewed-${storyId}-${lang}`;
@@ -391,30 +414,172 @@ function trackView(storyId, lang) {
 }
 
 
-// --------------------------------------------------
-// RENDER STORIES
-// --------------------------------------------------
+// ================================================
+// SHARE STORY
+// ================================================
+
+function getStoryLink(storyId, lang) {
+  const url = new URL(window.location.href);
+
+  url.hash = `story-${storyId}-${lang}`;
+
+  return url.toString();
+}
+
+async function copyStoryLink(link) {
+  if (
+    navigator.clipboard &&
+    window.isSecureContext
+  ) {
+    await navigator.clipboard.writeText(link);
+    return;
+  }
+
+  const input = document.createElement('textarea');
+
+  input.value = link;
+  input.style.position = 'fixed';
+  input.style.opacity = '0';
+
+  document.body.appendChild(input);
+
+  input.select();
+
+  const copied = document.execCommand('copy');
+
+  input.remove();
+
+  if (!copied) {
+    throw new Error('Copy unavailable');
+  }
+}
+
+function showShareNotice(button, message) {
+  const original = button.innerHTML;
+
+  button.textContent = message;
+
+  window.setTimeout(() => {
+    if (button.isConnected) {
+      button.innerHTML = original;
+    }
+  }, 2200);
+}
+
+async function shareStory(storyId, button) {
+  const story = stories.find(
+    item => item.id === storyId
+  );
+
+  if (!story) return;
+
+  const details = story[language];
+  const t = translations[language];
+
+  const link = getStoryLink(story.id, language);
+
+  const shareData = {
+    title: details.title,
+    text:
+      `${details.title}\n\n` +
+      `${details.description}\n\n` +
+      'Stories for Little Dreamers',
+    url: link
+  };
+
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+      return;
+    }
+
+    await copyStoryLink(link);
+
+    showShareNotice(button, t.shareCopied);
+
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      return;
+    }
+
+    try {
+      await copyStoryLink(link);
+      showShareNotice(button, t.shareCopied);
+
+    } catch (copyError) {
+      window.prompt(t.shareCopy, link);
+    }
+  }
+}
+
+
+// ================================================
+// OPEN DIRECT STORY LINKS
+// ================================================
+
+function openSharedStory() {
+  const match =
+    /^#story-(wine|sun|cat)-(de|en)$/
+      .exec(window.location.hash);
+
+  if (!match) return;
+
+  const [, id, lang] = match;
+
+  if (language !== lang) {
+    language = lang;
+
+    localStorage.setItem(
+      'story-language',
+      lang
+    );
+
+    render();
+    return;
+  }
+
+  const card = document.getElementById(
+    `story-${id}`
+  );
+
+  if (card) {
+    window.requestAnimationFrame(() => {
+      card.scrollIntoView({
+        block: 'center',
+        behavior: 'smooth'
+      });
+    });
+  }
+}
+
+window.addEventListener(
+  'hashchange',
+  openSharedStory
+);
+
+
+// ================================================
+// RENDER WEBSITE AND STORY CARDS
+// ================================================
 
 function render() {
   const t = translations[language];
 
   document.documentElement.lang = language;
 
-  // Translate page text.
+  // Translate website text.
 
-  document.querySelectorAll('[data-i18n]').forEach(
-    element => {
-      if (
-        Object.prototype.hasOwnProperty.call(
-          t,
-          element.dataset.i18n
-        )
-      ) {
-        element.textContent =
-          t[element.dataset.i18n];
-      }
+  document.querySelectorAll(
+    '[data-i18n]'
+  ).forEach(element => {
+    const key = element.dataset.i18n;
+
+    if (
+      Object.prototype.hasOwnProperty.call(t, key)
+    ) {
+      element.textContent = t[key];
     }
-  );
+  });
 
   // Update language buttons.
 
@@ -424,7 +589,10 @@ function render() {
     const active =
       button.dataset.lang === language;
 
-    button.classList.toggle('active', active);
+    button.classList.toggle(
+      'active',
+      active
+    );
 
     button.setAttribute(
       'aria-pressed',
@@ -434,136 +602,161 @@ function render() {
 
   // Build story cards.
 
-  document.getElementById('storyGrid').innerHTML =
-    stories.map(story => {
-      const files = story.files[language];
-      const details = story[language];
+  const storyGrid =
+    document.getElementById('storyGrid');
 
-      const image =
-        story.id === 'cat' ? 'rafael' : story.id;
+  if (!storyGrid) return;
 
-      const audioPath =
-        `stories/${encodeURIComponent(files.mp3)}`;
+  storyGrid.innerHTML = stories.map(story => {
+    const files = story.files[language];
+    const details = story[language];
 
-      const pdfPath =
-        `stories/${encodeURIComponent(files.pdf)}`;
+    const image =
+      story.id === 'cat' ? 'rafael' : story.id;
 
-      return `
-        <article class="story-card">
+    const audioPath =
+      `stories/${encodeURIComponent(files.mp3)}`;
 
-          <div class="story-art ${story.id}"
-               aria-hidden="true">
+    const pdfPath =
+      `stories/${encodeURIComponent(files.pdf)}`;
 
-            <img
-              src="images/${image}.jpg"
-              alt="${details.title}"
-              loading="lazy"
-            >
+    return `
+      <article class="story-card"
+               id="story-${story.id}">
 
-          </div>
+        <div class="story-art ${story.id}">
 
-          <div class="story-body">
+          <img
+            src="images/${image}.jpg"
+            alt="${details.title}"
+            loading="lazy"
+          >
+
+        </div>
+
+        <div class="story-body">
+
+          <div class="story-badges">
 
             <span class="age">
               ${t.age} ${story.age}
-              ${language === 'de' ? 'Jahren' : 'years'}
+              ${language === 'de'
+                ? 'Jahren'
+                : 'years'}
             </span>
 
-            <h3>${details.title}</h3>
-
-            <p>${details.description}</p>
-
-            <div
-              class="story-counts"
-              aria-label="${
-                language === 'de'
-                  ? 'Statistik'
-                  : 'Story statistics'
-              }"
+            <button
+              type="button"
+              class="story-share"
+              data-share="${story.id}"
+              aria-label="${t.share}: ${details.title}"
             >
-              ${metrics.map(
-                (metric, index) => `
-                  <span>
-                    <b id="count-${story.id}-${metric}">—</b>
-                    ${counterLabels()[index]}
-                  </span>
-                `
-              ).join('')}
-            </div>
-
-            <div class="story-actions">
-
-              <button
-                type="button"
-                class="action listen"
-                data-play="${story.id}"
-                aria-expanded="false"
-              >
-                ${t.listen}
-              </button>
-
-              <a
-                class="action read"
-                data-track="reads"
-                data-story="${story.id}"
-                href="${pdfPath}"
-                target="_blank"
-                rel="noopener"
-              >
-                ${t.read}
-              </a>
-
-              <a
-                class="action download"
-                data-track="mp3_downloads"
-                data-story="${story.id}"
-                href="${audioPath}"
-                download
-              >
-                ${t.download} MP3
-              </a>
-
-              <a
-                class="action download"
-                data-track="pdf_downloads"
-                data-story="${story.id}"
-                href="${pdfPath}"
-                download
-              >
-                ${t.download} PDF
-              </a>
-
-            </div>
-
-            <audio
-              class="player"
-              id="player-${story.id}"
-              controls
-              preload="metadata"
-              src="${audioPath}"
-            ></audio>
-
-            <p
-              class="audio-help"
-              id="audio-help-${story.id}"
-              hidden
-            >
-              ${
-                language === 'de'
-                  ? 'Die Audiodatei konnte nicht geladen werden. Bitte prüfe, ob die MP3 im inneren stories-Ordner liegt und der Dateiname genau stimmt.'
-                  : 'Audio could not be loaded. Check that the MP3 is in the inner stories folder and that its filename matches exactly.'
-              }
-            </p>
+              <span aria-hidden="true">↗</span>
+              ${t.share}
+            </button>
 
           </div>
 
-        </article>
-      `;
-    }).join('');
+          <h3>${details.title}</h3>
 
-  // ----------------------------------------------
+          <p>${details.description}</p>
+
+          <div
+            class="story-counts"
+            aria-label="${
+              language === 'de'
+                ? 'Statistik'
+                : 'Story statistics'
+            }"
+          >
+
+            ${metrics.map(
+              (metric, index) => `
+                <span>
+                  <b id="count-${story.id}-${metric}">
+                    —
+                  </b>
+                  ${counterLabels()[index]}
+                </span>
+              `
+            ).join('')}
+
+          </div>
+
+          <div class="story-actions">
+
+            <button
+              type="button"
+              class="action listen"
+              data-play="${story.id}"
+              aria-expanded="false"
+            >
+              ${t.listen}
+            </button>
+
+            <a
+              class="action read"
+              data-track="reads"
+              data-story="${story.id}"
+              href="${pdfPath}"
+              target="_blank"
+              rel="noopener"
+            >
+              ${t.read}
+            </a>
+
+            <a
+              class="action download"
+              data-track="mp3_downloads"
+              data-story="${story.id}"
+              href="${audioPath}"
+              download
+            >
+              ${t.download} MP3
+            </a>
+
+            <a
+              class="action download"
+              data-track="pdf_downloads"
+              data-story="${story.id}"
+              href="${pdfPath}"
+              download
+            >
+              ${t.download} PDF
+            </a>
+
+          </div>
+
+          <audio
+            class="player"
+            id="player-${story.id}"
+            controls
+            preload="metadata"
+            src="${audioPath}"
+          ></audio>
+
+          <p
+            class="audio-help"
+            id="audio-help-${story.id}"
+            hidden
+          >
+            ${
+              language === 'de'
+                ? 'Die Audiodatei konnte nicht geladen werden. Bitte prüfe, ob die MP3 im inneren stories-Ordner liegt und der Dateiname genau stimmt.'
+                : 'Audio could not be loaded. Check that the MP3 is in the inner stories folder and that its filename matches exactly.'
+            }
+          </p>
+
+        </div>
+
+      </article>
+    `;
+  }).join('');
+
+
+  // ==============================================
   // AUDIO PLAYBACK AND LISTEN COUNTER
-  // ----------------------------------------------
+  // ==============================================
 
   document.querySelectorAll(
     'audio.player'
@@ -575,8 +768,6 @@ function render() {
 
     let countedThisPlayback = false;
 
-    // Show an error if the audio file fails.
-
     audio.addEventListener('error', () => {
       const help = document.getElementById(
         `audio-help-${storyId}`
@@ -586,9 +777,6 @@ function render() {
         help.hidden = false;
       }
     });
-
-    // Count actual playback, not merely a click.
-    // This also works with the built-in audio player.
 
     audio.addEventListener('playing', () => {
       trackView(storyId, playedLanguage);
@@ -604,16 +792,15 @@ function render() {
       }
     });
 
-    // Allow another listen after the story ends.
-
     audio.addEventListener('ended', () => {
       countedThisPlayback = false;
     });
   });
 
-  // ----------------------------------------------
-  // LISTEN BUTTON
-  // ----------------------------------------------
+
+  // ==============================================
+  // LISTEN BUTTONS
+  // ==============================================
 
   document.querySelectorAll(
     '[data-play]'
@@ -624,6 +811,8 @@ function render() {
       const audio = document.getElementById(
         `player-${storyId}`
       );
+
+      if (!audio) return;
 
       const open =
         !audio.classList.contains('visible');
@@ -639,8 +828,6 @@ function render() {
       );
 
       if (open) {
-        // Pause other audio players.
-
         document.querySelectorAll(
           'audio'
         ).forEach(other => {
@@ -648,8 +835,6 @@ function render() {
             other.pause();
           }
         });
-
-        // Start playback.
 
         audio.play().catch(error => {
           console.warn(
@@ -672,9 +857,10 @@ function render() {
     });
   });
 
-  // ----------------------------------------------
-  // PDF READING AND DOWNLOAD COUNTERS
-  // ----------------------------------------------
+
+  // ==============================================
+  // PDF AND DOWNLOAD COUNTERS
+  // ==============================================
 
   document.querySelectorAll(
     '[data-track]'
@@ -693,13 +879,30 @@ function render() {
     });
   });
 
+
+  // ==============================================
+  // SHARE BUTTONS
+  // ==============================================
+
+  document.querySelectorAll(
+    '[data-share]'
+  ).forEach(button => {
+    button.addEventListener('click', () => {
+      shareStory(
+        button.dataset.share,
+        button
+      );
+    });
+  });
+
   paintCounters();
+  openSharedStory();
 }
 
 
-// --------------------------------------------------
+// ================================================
 // LANGUAGE BUTTONS
-// --------------------------------------------------
+// ================================================
 
 document.querySelectorAll(
   'button.lang[data-lang]'
@@ -717,9 +920,9 @@ document.querySelectorAll(
 });
 
 
-// --------------------------------------------------
+// ================================================
 // FOOTER YEAR
-// --------------------------------------------------
+// ================================================
 
 const year = document.getElementById('year');
 
@@ -729,9 +932,9 @@ if (year) {
 }
 
 
-// --------------------------------------------------
+// ================================================
 // CONTACT FORM
-// --------------------------------------------------
+// ================================================
 
 const contact =
   document.getElementById('contactLink');
@@ -741,9 +944,9 @@ if (contact) {
 }
 
 
-// --------------------------------------------------
+// ================================================
 // START WEBSITE
-// --------------------------------------------------
+// ================================================
 
 render();
 loadCounters();
