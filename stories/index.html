@@ -1,8 +1,10 @@
+
 <!doctype html>
 <html lang="de">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 
     <meta name="description"
           content="Kostenlose Kindergeschichten zum Lesen und Anhören – Stories for Little Dreamers.">
@@ -12,70 +14,76 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /* Main website button in the header */
-        .home-navigation {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 7px;
-            padding: 10px 16px;
-            border-radius: 999px;
-            background: #355d73;
-            color: #ffffff !important;
-            font-size: 14px;
-            font-weight: 700;
-            line-height: 1.3;
-            text-decoration: none !important;
-            white-space: nowrap;
-            border: 1px solid rgba(255,255,255,0.25);
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
+        /*
+         * Navigation and mobile improvements.
+         * Button colours are inherited from the existing
+         * Explore Stories button (.hero-link).
+         */
 
-        .home-navigation:hover {
-            background: #24485c;
-            color: #ffffff !important;
-            transform: translateY(-2px);
-        }
-
-        .home-navigation:focus-visible,
-        .contact-button:focus-visible {
-            outline: 3px solid #e4ad48;
-            outline-offset: 3px;
-        }
-
-        /* Keep navigation usable on smaller screens */
         .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
             gap: 14px;
+        }
+
+        .top .brand {
+            min-width: 0;
+            overflow-wrap: anywhere;
         }
 
         .languages {
             display: flex;
             align-items: center;
+            justify-content: flex-end;
             flex-wrap: wrap;
             gap: 8px;
+            min-width: 0;
         }
 
-        /* Ensure the bottom contact button has visible text */
+        /* Both links use the existing Explore Stories style */
+
+        .home-navigation,
         .contact-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            gap: 7px;
+            box-sizing: border-box;
             text-align: center;
-            color: #ffffff !important;
-            background: #355d73;
+            text-decoration: none;
             font-weight: 700;
-            text-decoration: none !important;
-            border-radius: 999px;
-            padding: 13px 22px;
+            line-height: 1.4;
+            max-width: 100%;
+            transition:
+                transform 0.2s ease,
+                opacity 0.2s ease;
         }
 
+        .home-navigation {
+            padding: 10px 17px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .home-navigation:hover,
         .contact-button:hover {
-            background: #24485c;
-            color: #ffffff !important;
+            transform: translateY(-2px);
         }
 
-        /* Labels controlled by the existing language buttons */
+        .home-navigation:focus-visible,
+        .contact-button:focus-visible {
+            outline: 3px solid currentColor;
+            outline-offset: 4px;
+        }
+
+        /*
+         * Language-specific navigation labels.
+         * The existing script.js still handles all
+         * story translations.
+         */
+
         .nav-label-en {
             display: none;
         }
@@ -88,14 +96,107 @@
             display: inline;
         }
 
-        @media (max-width: 600px) {
-            .home-navigation {
-                font-size: 13px;
-                padding: 9px 13px;
+        /* Keep the contact link readable and tappable */
+
+        .contact-button {
+            padding: 13px 22px;
+            min-height: 44px;
+        }
+
+        /* Tablet */
+
+        @media (max-width: 800px) {
+            .top {
+                justify-content: center;
+                text-align: center;
             }
 
             .languages {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Mobile phone */
+
+        @media (max-width: 600px) {
+            .top {
+                padding-left: 14px;
+                padding-right: 14px;
+                gap: 12px;
+            }
+
+            .top .brand {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+                font-size: clamp(16px, 4.5vw, 22px);
+            }
+
+            .languages {
+                width: 100%;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .home-navigation {
+                font-size: 13px;
+                padding: 10px 14px;
+                min-height: 44px;
+            }
+
+            .languages .lang {
+                min-height: 44px;
+                white-space: nowrap;
+            }
+
+            .contact {
+                flex-wrap: wrap;
+                gap: 18px;
+            }
+
+            .contact-button {
+                width: 100%;
+                white-space: normal;
+                padding: 14px 18px;
+            }
+
+            .hero-copy,
+            .section-head,
+            .value {
+                min-width: 0;
+            }
+
+            .story-grid {
+                min-width: 0;
+            }
+        }
+
+        /* Very small phones */
+
+        @media (max-width: 360px) {
+            .languages {
                 gap: 6px;
+            }
+
+            .home-navigation {
+                width: 100%;
+            }
+
+            .languages .lang {
+                flex: 1 1 auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .home-navigation,
+            .contact-button {
+                transition: none;
+            }
+
+            .home-navigation:hover,
+            .contact-button:hover {
+                transform: none;
             }
         }
     </style>
@@ -111,11 +212,12 @@
             Stories for Little Dreamers
         </a>
 
-        <nav class="languages" aria-label="Navigation and language">
+        <nav class="languages"
+             aria-label="Navigation and language">
 
-            <!-- Back to OnlyRegistered -->
+            <!-- Main website button -->
             <a
-                class="home-navigation"
+                class="hero-link home-navigation"
                 href="https://onlyregistered.github.io/appfeedback/"
                 aria-label="Return to OnlyRegistered main website"
             >
@@ -124,25 +226,33 @@
                 <span class="nav-label-en">Main Website</span>
             </a>
 
-            <!-- Language selection -->
+            <!-- German language -->
             <button
                 type="button"
                 class="lang active"
                 data-lang="de"
                 aria-pressed="true"
-            >🇩🇪 Deutsch</button>
+            >
+                🇩🇪 Deutsch
+            </button>
 
+            <!-- English language -->
             <button
                 type="button"
                 class="lang"
                 data-lang="en"
                 aria-pressed="false"
-            >🇬🇧 English</button>
+            >
+                🇬🇧 English
+            </button>
 
         </nav>
+
     </header>
 
     <main id="home">
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -175,16 +285,23 @@
                     class="hero-link"
                     href="#stories"
                     data-i18n="explore"
-                >Geschichten entdecken ↓</a>
+                >
+                    Geschichten entdecken ↓
+                </a>
 
             </div>
+
         </section>
+
+        <!-- STORY COLLECTION -->
 
         <section class="content" id="stories">
 
             <div class="section-head">
+
                 <div>
-                    <span class="eyebrow" data-i18n="collectionLabel">
+                    <span class="eyebrow"
+                          data-i18n="collectionLabel">
                         Unsere Sammlung
                     </span>
 
@@ -196,15 +313,20 @@
                 <p data-i18n="collectionHint">
                     Anhören, lesen und kostenlos herunterladen
                 </p>
+
             </div>
 
+            <!-- Stories are loaded by script.js -->
             <div class="story-grid" id="storyGrid"></div>
 
         </section>
 
+        <!-- OUR VALUES -->
+
         <section class="values">
 
             <div class="value">
+
                 <span>💛</span>
 
                 <h3 data-i18n="whyTitle">
@@ -213,11 +335,14 @@
 
                 <p data-i18n="whyText">
                     Hinter jeder Geschichte steckt ein kleiner Gedanke
-                    über Freundlichkeit, Mut, Dankbarkeit oder Zusammenhalt.
+                    über Freundlichkeit, Mut, Dankbarkeit
+                    oder Zusammenhalt.
                 </p>
+
             </div>
 
             <div class="value">
+
                 <span>🌱</span>
 
                 <h3 data-i18n="agesTitle">
@@ -229,9 +354,11 @@
                     von 5 bis 12 Jahren gedacht – zum Vorlesen,
                     Selberlesen und Zuhören.
                 </p>
+
             </div>
 
             <div class="value">
+
                 <span>🎁</span>
 
                 <h3 data-i18n="freeTitle">
@@ -243,19 +370,25 @@
                     herunterladen, anhören und an andere weitergeben.
                     Bitte nenne dabei unsere Sammlung.
                 </p>
+
             </div>
 
         </section>
 
+        <!-- CONTACT -->
+
         <section class="contact" id="contact">
 
             <div>
-                <span class="eyebrow" data-i18n="contactLabel">
+
+                <span class="eyebrow"
+                      data-i18n="contactLabel">
                     Erzähl uns deine Idee
                 </span>
 
                 <h2 data-i18n="contactTitle">
-                    Welche Geschichte sollen wir als Nächstes erzählen?
+                    Welche Geschichte sollen wir
+                    als Nächstes erzählen?
                 </h2>
 
                 <p data-i18n="contactText">
@@ -263,19 +396,24 @@
                     oder eine Idee? Wir freuen uns über eine Nachricht
                     über das Kontaktformular unserer Hauptwebsite.
                 </p>
+
             </div>
 
-            <!-- Contact Us: links to the feedback form -->
+            <!-- Direct link to OnlyRegistered feedback form -->
             <a
                 id="contactLink"
-                class="contact-button"
+                class="hero-link contact-button"
                 href="https://onlyregistered.github.io/appfeedback/#feedback"
                 data-i18n="contactButton"
-            >Zum Kontaktformular ↗</a>
+            >
+                Zum Kontaktformular ↗
+            </a>
 
         </section>
 
     </main>
+
+    <!-- FOOTER -->
 
     <footer>
 
@@ -292,15 +430,18 @@
 
 </div>
 
+<!-- Existing story, language and counter functionality -->
 <script src="script.js"></script>
 
 <script>
-    /* Keep the Home label in sync with the language buttons,
-       independently of the story translation script. */
+    /*
+     * Keep the Main Website label synchronized
+     * with the selected language.
+     */
+
     (function () {
-        const languageButtons = document.querySelectorAll(
-            'button[data-lang]'
-        );
+        const languageButtons =
+            document.querySelectorAll('button[data-lang]');
 
         function updateNavigationLanguage(language) {
             document.documentElement.lang =
@@ -313,17 +454,21 @@
             });
         });
 
-        const activeButton = document.querySelector(
-            'button[data-lang].active'
-        );
+        const activeButton =
+            document.querySelector('button[data-lang].active');
 
         if (activeButton) {
             updateNavigationLanguage(activeButton.dataset.lang);
         }
 
-        /* Make sure the bottom contact button always points
-           to the correct feedback section. */
-        const contactLink = document.getElementById('contactLink');
+        /*
+         * The existing script.js may set the contact URL
+         * during translation, so this is the correct
+         * destination at initial page load.
+         */
+
+        const contactLink =
+            document.getElementById('contactLink');
 
         if (contactLink) {
             contactLink.href =
