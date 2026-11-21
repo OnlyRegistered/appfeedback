@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="utf-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1">
 
@@ -13,11 +14,7 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
-        /*
-         * Navigation and mobile improvements.
-         * Button colours are inherited from the existing
-         * Explore Stories button (.hero-link).
-         */
+        /* Header and navigation */
 
         .top {
             display: flex;
@@ -41,65 +38,59 @@
             min-width: 0;
         }
 
-        /* Both links use the existing Explore Stories style */
+        /* Contact button uses Explore Stories styling */
 
-        .home-navigation,
         .contact-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
             box-sizing: border-box;
             text-align: center;
             text-decoration: none;
             font-weight: 700;
             line-height: 1.4;
             max-width: 100%;
+            min-height: 44px;
+            padding: 13px 22px;
             transition:
                 transform 0.2s ease,
                 opacity 0.2s ease;
         }
 
-        .home-navigation {
-            padding: 10px 17px;
-            font-size: 14px;
-            white-space: nowrap;
-        }
-
-        .home-navigation:hover,
         .contact-button:hover {
             transform: translateY(-2px);
         }
 
-        .home-navigation:focus-visible,
-        .contact-button:focus-visible {
+        .contact-button:focus-visible,
+        .footer-software-link:focus-visible {
             outline: 3px solid currentColor;
             outline-offset: 4px;
         }
 
-        /*
-         * Language-specific navigation labels.
-         * The existing script.js still handles all
-         * story translations.
-         */
+        /* Footer */
 
-        .nav-label-en {
-            display: none;
+        .stories-footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
         }
 
-        html[lang="en"] .nav-label-de {
-            display: none;
+        .footer-software-link {
+            color: inherit;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 1.5;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            overflow-wrap: anywhere;
+            transition: opacity 0.2s ease;
         }
 
-        html[lang="en"] .nav-label-en {
-            display: inline;
-        }
-
-        /* Keep the contact link readable and tappable */
-
-        .contact-button {
-            padding: 13px 22px;
-            min-height: 44px;
+        .footer-software-link:hover {
+            opacity: 0.7;
         }
 
         /* Tablet */
@@ -138,12 +129,6 @@
                 gap: 8px;
             }
 
-            .home-navigation {
-                font-size: 13px;
-                padding: 10px 14px;
-                min-height: 44px;
-            }
-
             .languages .lang {
                 min-height: 44px;
                 white-space: nowrap;
@@ -162,12 +147,14 @@
 
             .hero-copy,
             .section-head,
-            .value {
+            .value,
+            .story-grid {
                 min-width: 0;
             }
 
-            .story-grid {
-                min-width: 0;
+            .stories-footer {
+                padding-left: 14px;
+                padding-right: 14px;
             }
         }
 
@@ -178,22 +165,17 @@
                 gap: 6px;
             }
 
-            .home-navigation {
-                width: 100%;
-            }
-
             .languages .lang {
                 flex: 1 1 auto;
             }
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .home-navigation,
-            .contact-button {
+            .contact-button,
+            .footer-software-link {
                 transition: none;
             }
 
-            .home-navigation:hover,
             .contact-button:hover {
                 transform: none;
             }
@@ -204,6 +186,8 @@
 <body>
 <div class="site-shell">
 
+    <!-- HEADER -->
+
     <header class="top">
 
         <a class="brand" href="#home">
@@ -212,20 +196,8 @@
         </a>
 
         <nav class="languages"
-             aria-label="Navigation and language">
+             aria-label="Language selection">
 
-            <!-- Main website button -->
-            <a
-                class="hero-link home-navigation"
-                href="https://onlyregistered.github.io/appfeedback/"
-                aria-label="Return to OnlyRegistered main website"
-            >
-                <span aria-hidden="true">🏠</span>
-                <span class="nav-label-de">Hauptwebsite</span>
-                <span class="nav-label-en">Main Website</span>
-            </a>
-
-            <!-- German language -->
             <button
                 type="button"
                 class="lang active"
@@ -235,7 +207,6 @@
                 🇩🇪 Deutsch
             </button>
 
-            <!-- English language -->
             <button
                 type="button"
                 class="lang"
@@ -315,7 +286,7 @@
 
             </div>
 
-            <!-- Stories are loaded by script.js -->
+            <!-- Stories loaded by script.js -->
             <div class="story-grid" id="storyGrid"></div>
 
         </section>
@@ -414,12 +385,20 @@
 
     <!-- FOOTER -->
 
-    <footer>
+    <footer class="stories-footer">
 
         <span>
             © <span id="year"></span>
             Stories for Little Dreamers
         </span>
+
+        <a
+            href="https://onlyregistered.github.io/appfeedback/"
+            class="footer-software-link"
+            title="Visit our free Windows software website"
+        >
+            Free Windows Software, Built With Care. ↗
+        </a>
 
         <span data-i18n="footer">
             Ein kleines Hobby, mit Freude geteilt.
@@ -434,38 +413,11 @@
 
 <script>
     /*
-     * Keep the Main Website label synchronized
-     * with the selected language.
+     * Keep the contact link pointing to the correct
+     * OnlyRegistered feedback section on initial load.
      */
 
     (function () {
-        const languageButtons =
-            document.querySelectorAll('button[data-lang]');
-
-        function updateNavigationLanguage(language) {
-            document.documentElement.lang =
-                language === 'en' ? 'en' : 'de';
-        }
-
-        languageButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                updateNavigationLanguage(button.dataset.lang);
-            });
-        });
-
-        const activeButton =
-            document.querySelector('button[data-lang].active');
-
-        if (activeButton) {
-            updateNavigationLanguage(activeButton.dataset.lang);
-        }
-
-        /*
-         * The existing script.js may set the contact URL
-         * during translation, so this is the correct
-         * destination at initial page load.
-         */
-
         const contactLink =
             document.getElementById('contactLink');
 
