@@ -1,17 +1,112 @@
+
 <!doctype html>
 <html lang="de">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Kostenlose Kindergeschichten zum Lesen und Anhören – Stories for Little Dreamers.">
+
+    <meta name="description"
+          content="Kostenlose Kindergeschichten zum Lesen und Anhören – Stories for Little Dreamers.">
+
     <title>Stories for Little Dreamers</title>
+
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Main website button in the header */
+        .home-navigation {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: #355d73;
+            color: #ffffff !important;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.3;
+            text-decoration: none !important;
+            white-space: nowrap;
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .home-navigation:hover {
+            background: #24485c;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+        }
+
+        .home-navigation:focus-visible,
+        .contact-button:focus-visible {
+            outline: 3px solid #e4ad48;
+            outline-offset: 3px;
+        }
+
+        /* Keep navigation usable on smaller screens */
+        .top {
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .languages {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* Ensure the bottom contact button has visible text */
+        .contact-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #ffffff !important;
+            background: #355d73;
+            font-weight: 700;
+            text-decoration: none !important;
+            border-radius: 999px;
+            padding: 13px 22px;
+        }
+
+        .contact-button:hover {
+            background: #24485c;
+            color: #ffffff !important;
+        }
+
+        /* Labels controlled by the existing language buttons */
+        .nav-label-en {
+            display: none;
+        }
+
+        html[lang="en"] .nav-label-de {
+            display: none;
+        }
+
+        html[lang="en"] .nav-label-en {
+            display: inline;
+        }
+
+        @media (max-width: 600px) {
+            .home-navigation {
+                font-size: 13px;
+                padding: 9px 13px;
+            }
+
+            .languages {
+                gap: 6px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 <div class="site-shell">
 
     <header class="top">
+
         <a class="brand" href="#home">
             <span class="brand-mark">✦</span>
             Stories for Little Dreamers
@@ -19,12 +114,16 @@
 
         <nav class="languages" aria-label="Navigation and language">
 
-            <!-- Return to main website -->
+            <!-- Back to OnlyRegistered -->
             <a
+                class="home-navigation"
                 href="https://onlyregistered.github.io/appfeedback/"
-                class="lang"
-                data-i18n="mainWebsite"
-            >🏠 Hauptwebsite</a>
+                aria-label="Return to OnlyRegistered main website"
+            >
+                <span aria-hidden="true">🏠</span>
+                <span class="nav-label-de">Hauptwebsite</span>
+                <span class="nav-label-en">Main Website</span>
+            </a>
 
             <!-- Language selection -->
             <button
@@ -47,6 +146,7 @@
     <main id="home">
 
         <section class="hero">
+
             <div class="sky-orb"></div>
 
             <div class="hero-art" aria-hidden="true">
@@ -56,6 +156,7 @@
             </div>
 
             <div class="hero-copy">
+
                 <span class="eyebrow" data-i18n="eyebrow">
                     Kleine Geschichten, große Gedanken
                 </span>
@@ -71,13 +172,17 @@
                     besonders für Kinder.
                 </p>
 
-                <a class="hero-link" href="#stories" data-i18n="explore">
-                    Geschichten entdecken ↓
-                </a>
+                <a
+                    class="hero-link"
+                    href="#stories"
+                    data-i18n="explore"
+                >Geschichten entdecken ↓</a>
+
             </div>
         </section>
 
         <section class="content" id="stories">
+
             <div class="section-head">
                 <div>
                     <span class="eyebrow" data-i18n="collectionLabel">
@@ -95,13 +200,18 @@
             </div>
 
             <div class="story-grid" id="storyGrid"></div>
+
         </section>
 
         <section class="values">
 
             <div class="value">
                 <span>💛</span>
-                <h3 data-i18n="whyTitle">Mit Herz erzählt</h3>
+
+                <h3 data-i18n="whyTitle">
+                    Mit Herz erzählt
+                </h3>
+
                 <p data-i18n="whyText">
                     Hinter jeder Geschichte steckt ein kleiner Gedanke
                     über Freundlichkeit, Mut, Dankbarkeit oder Zusammenhalt.
@@ -110,9 +220,11 @@
 
             <div class="value">
                 <span>🌱</span>
+
                 <h3 data-i18n="agesTitle">
                     Für kleine und große Zuhörer
                 </h3>
+
                 <p data-i18n="agesText">
                     Unsere Geschichten sind ungefähr für Kinder
                     von 5 bis 12 Jahren gedacht – zum Vorlesen,
@@ -122,9 +234,11 @@
 
             <div class="value">
                 <span>🎁</span>
+
                 <h3 data-i18n="freeTitle">
                     Kostenlos zum Teilen
                 </h3>
+
                 <p data-i18n="freeText">
                     Du darfst die Geschichten kostenlos lesen,
                     herunterladen, anhören und an andere weitergeben.
@@ -135,6 +249,7 @@
         </section>
 
         <section class="contact" id="contact">
+
             <div>
                 <span class="eyebrow" data-i18n="contactLabel">
                     Erzähl uns deine Idee
@@ -151,17 +266,20 @@
                 </p>
             </div>
 
+            <!-- Contact Us: links to the feedback form -->
             <a
                 id="contactLink"
                 class="contact-button"
                 href="https://onlyregistered.github.io/appfeedback/#feedback"
                 data-i18n="contactButton"
             >Zum Kontaktformular ↗</a>
+
         </section>
 
     </main>
 
     <footer>
+
         <span>
             © <span id="year"></span>
             Stories for Little Dreamers
@@ -170,11 +288,50 @@
         <span data-i18n="footer">
             Ein kleines Hobby, mit Freude geteilt.
         </span>
+
     </footer>
 
 </div>
 
 <script src="script.js"></script>
+
+<script>
+    /* Keep the Home label in sync with the language buttons,
+       independently of the story translation script. */
+    (function () {
+        const languageButtons = document.querySelectorAll(
+            'button[data-lang]'
+        );
+
+        function updateNavigationLanguage(language) {
+            document.documentElement.lang =
+                language === 'en' ? 'en' : 'de';
+        }
+
+        languageButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                updateNavigationLanguage(button.dataset.lang);
+            });
+        });
+
+        const activeButton = document.querySelector(
+            'button[data-lang].active'
+        );
+
+        if (activeButton) {
+            updateNavigationLanguage(activeButton.dataset.lang);
+        }
+
+        /* Make sure the bottom contact button always points
+           to the correct feedback section. */
+        const contactLink = document.getElementById('contactLink');
+
+        if (contactLink) {
+            contactLink.href =
+                'https://onlyregistered.github.io/appfeedback/#feedback';
+        }
+    })();
+</script>
 
 </body>
 </html>
