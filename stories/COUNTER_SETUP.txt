@@ -1,0 +1,25 @@
+STORIES FOR LITTLE DREAMERS — SHARED COUNTERS
+
+Your GitHub Pages website is static. To display real shared numbers, it needs a free Supabase database.
+
+1. Create a free project at https://supabase.com/ .
+2. Open SQL Editor and run the complete SQL from COUNTER_DATABASE.sql.
+3. Open Project Settings -> API (or Connect -> API keys, depending on the dashboard).
+4. Copy your Project URL and the PUBLIC / ANON / PUBLISHABLE API key. NEVER use a secret or service_role key in your website.
+5. In script.js, set SUPABASE_URL and SUPABASE_ANON_KEY to those two values, in quotation marks.
+6. Upload the changed script.js to your GitHub stories folder.
+7. The counters will then show numbers to everyone, independently for each story and language.
+
+Until configured, counters display a dash (—), not fake numbers.
+
+DEFINITIONS:
+Views = story opened through Listen or PDF/download action once per browser tab/session.
+Listens = successful starts of audio playback via Listen button.
+Reads = clicks to open the PDF, not confirmed reading.
+Downloads = clicks on download links, not verified completed downloads.
+The counters measure interactions, not unique visitors. They can be inflated by repeated actions or automated traffic.
+
+FILE PATHS:
+GitHub repository /stories/index.html, /stories/style.css, /stories/script.js, /stories/images/...
+GitHub repository /stories/stories/<MP3 and PDF files>
+The German Rafael filenames have been corrected. Check the English Rafael filenames if they also differ from the ones in script.js.
