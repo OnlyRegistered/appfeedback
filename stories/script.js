@@ -1,4 +1,3 @@
-
 /* Stories for Little Dreamers
    Bilingual stories and Supabase counters
 */
