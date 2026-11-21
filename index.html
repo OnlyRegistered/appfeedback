@@ -567,5 +567,50 @@ if (r.ok) {
   <script>
 (function(){var S='[class*="animate-fade"],[class*="animate-in"],[class*="animate-slide"],[class*="animate-zoom"],[data-reveal]';function skip(el){for(var n=el;n&&n!==document.body;n=n.parentElement){if(n.nodeType!==1)continue;var cs=getComputedStyle(n);if(cs.display==="none"||cs.visibility==="hidden")return true;if(n.getAttribute("aria-hidden")==="true"||n.hasAttribute("hidden")||n.getAttribute("data-state")==="closed"||n.getAttribute("aria-expanded")==="false")return true;}var c=getComputedStyle(el);if(c.position==="absolute"||c.position==="fixed"){var p=el.parentElement;if(p){var ch=p.children;for(var i=0;i<ch.length;i++){var sib=ch[i];if(sib!==el){var sc=getComputedStyle(sib);if((sc.position==="absolute"||sc.position==="fixed")&&parseFloat(sc.opacity)>=0.99)return true;}}}}return false;}function show(el){try{if(!skip(el)&&parseFloat(getComputedStyle(el).opacity)<0.99){el.style.opacity="1";el.style.transform="none";}}catch(e){}}function run(){var els=[].slice.call(document.querySelectorAll(S));if(!els.length)return;if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);io.unobserve(e.target);}});},{rootMargin:"0px 0px -8% 0px"});els.forEach(function(el){io.observe(el);});}setTimeout(function(){els.forEach(show);},2500);}if(document.readyState!=="loading")run();else document.addEventListener("DOMContentLoaded",run);})();
 </script>
+    
+<script>
+(async function () {
+  const output = document.getElementById('main-visitor-count');
+  if (!output) return;
+
+  const base = 'https://kgowygqzqvoyajwmqzja.supabase.co';
+  const key = 'sb_publishable_r8DHRiQHHh5sEZHu-xHz6w_mwgixKpO';
+  const sessionKey = 'onlyregistered-main-homepage-counted';
+
+  try {
+    if (!sessionStorage.getItem(sessionKey)) {
+      const response = await fetch(base + '/rest/v1/rpc/record_main_page_visit', {
+        method: 'POST',
+        headers: {
+          apikey: key,
+          'Content-Type': 'application/json'
+        },
+        body: '{}'
+      });
+
+      if (!response.ok) throw new Error('Counter update failed');
+      sessionStorage.setItem(sessionKey, '1');
+    }
+
+    const response = await fetch(
+      base + '/rest/v1/main_page_visits?select=visits&id=eq.1',
+      {
+        headers: { apikey: key },
+        cache: 'no-store'
+      }
+    );
+
+    if (!response.ok) throw new Error('Counter read failed');
+
+    const rows = await response.json();
+
+    if (rows.length) {
+      output.textContent = Number(rows[0].visits).toLocaleString('en-GB');
+    }
+  } catch (error) {
+    console.warn('Visitor counter:', error);
+  }
+})();
+</script>
  </body>
  </html>
