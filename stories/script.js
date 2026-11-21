@@ -1,8 +1,8 @@
 /* CONFIGURATION: Set the URL of your existing website's contact form here. */
 const CONTACT_FORM_URL = '../';
 // Set these two values after completing COUNTER_SETUP.txt.
-const SUPABASE_URL = '';
-const SUPABASE_ANON_KEY = '';
+const SUPABASE_URL = 'https://kgowygqzqvoyajwmqzja.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_r8DHRiQHHh5sEZHu-xHz6w_mwgixKpO';
 const COUNTERS_ENABLED = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY); // Example: '/contact.html' or 'https://yourdomain.com/contact'
 const stories = [
  {id:'wine',emoji:'🍷',age:'8',files:{de:{mp3:'Der_geheimnisvolle_Weinverkaeufer.mp3',pdf:'Der_geheimnisvolle_Weinverkaeufer.pdf'},en:{mp3:'The_Mysterious_Wine_Seller.mp3',pdf:'The_Mysterious_Wine_Seller.pdf'}},de:{title:'Der geheimnisvolle Weinverkäufer',description:'Ein ungewöhnlicher Händler zeigt, wie sehr Worte und Erwartungen unsere Gedanken beeinflussen können.'},en:{title:'The Mysterious Wine Seller',description:'A curious merchant shows how words and expectations can shape what we think and feel.'}},
