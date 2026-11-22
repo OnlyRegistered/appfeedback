@@ -1,38 +1,28 @@
-/* =========================================
-   FIX: Full cover pictures, no cropping
-   ========================================= */
+
+/* ORIGINAL COMPACT STORY CARDS */
 
 .story-art {
-    display: block !important;
-    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    aspect-ratio: auto !important;
-    overflow: visible !important;
+    height: 185px !important;
+    min-height: 185px !important;
+    max-height: 185px !important;
+    overflow: hidden !important;
+    background: #f5eadb;
 }
 
 .story-art img {
     display: block !important;
     width: 100% !important;
-    height: auto !important;
-    min-height: 0 !important;
-    max-height: none !important;
-    aspect-ratio: auto !important;
+    height: 100% !important;
+    max-height: 185px !important;
     object-fit: contain !important;
     object-position: center !important;
-    position: static !important;
 }
 
-.story-art::before,
-.story-art::after {
-    display: none !important;
-}
-
-/* =========================================
-   Smaller age and Share buttons
-   ========================================= */
+/* SMALLER AGE AND SHARE BUTTONS */
 
 .story-badges {
     display: flex;
@@ -45,7 +35,6 @@
 .story-badges .age {
     font-size: 11px !important;
     padding: 5px 9px !important;
-    line-height: 1.3;
     margin: 0;
 }
 
@@ -53,21 +42,4 @@
     min-height: 28px !important;
     padding: 5px 10px !important;
     font-size: 11px !important;
-    line-height: 1.3;
-    gap: 4px;
-}
-
-/* =========================================
-   Mobile adjustments
-   ========================================= */
-
-@media (max-width: 650px) {
-    .story-art img {
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    .story-badges {
-        gap: 6px;
-    }
 }
