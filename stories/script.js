@@ -1,9 +1,16 @@
 /*
   Stories for Little Dreamers
   Complete script.js
+
   German and English stories
   Audio, PDF, sharing and Supabase counters
+
+  Includes Ronnie Book 1 and Book 2
 */
+
+// ================================================
+// SETTINGS
+// ================================================
 
 const CONTACT_FORM_URL =
   'https://onlyregistered.github.io/appfeedback/#feedback';
@@ -110,6 +117,10 @@ const stories = [
     }
   },
 
+  // ==============================================
+  // RONNIE - BOOK 1
+  // ==============================================
+
   {
     id: 'ronnie1',
     emoji: '🦚',
@@ -137,6 +148,40 @@ const stories = [
       title: 'Ronnie – The Little Peahen',
       description:
         'The true story of a little peahen raised by people at Green Farm, whose courage and trust bring wonderful surprises to her family.'
+    }
+  },
+
+  // ==============================================
+  // RONNIE - BOOK 2 - NEW
+  // ==============================================
+
+  {
+    id: 'ronnie2',
+    emoji: '🦚',
+    age: '5',
+    image: 'Ronnie_Band_2.jpg',
+
+    files: {
+      de: {
+        mp3: 'Ronnie_Band_2_Weihnachtskueken.mp3',
+        pdf: 'Ronnie_Band_2_Weihnachtskueken.pdf'
+      },
+      en: {
+        mp3: 'Ronnie_Book_2_Christmas_Chicks.mp3',
+        pdf: 'Ronnie_Book_2_Christmas_Chicks.pdf'
+      }
+    },
+
+    de: {
+      title: 'Ronnie und die Weihnachtsküken – Band 2',
+      description:
+        'Ronnie wird Mama! Kurz vor Weihnachten schlüpfen zwei kleine Pfauenküken namens Feliz und Navidad. Eine wahre Geschichte über Liebe, Vertrauen, Familie und das Leben auf Green Farm.'
+    },
+
+    en: {
+      title: 'Ronnie and the Christmas Chicks – Book 2',
+      description:
+        'Ronnie becomes a mother! Just in time for Christmas, two little peafowl chicks named Feliz and Navidad hatch. A true story of love, trust, family and life at Green Farm.'
     }
   }
 ];
