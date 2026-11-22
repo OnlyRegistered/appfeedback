@@ -1,17 +1,14 @@
-
 /*
   Stories for Little Dreamers
-  Complete script.js
-
-  Five bilingual stories
+  Complete website script
+  Six bilingual stories
   Supabase counters, audio, PDFs and sharing
-
-  Counter repair: November 2026
+  Updated November 2026
 */
 
-// ================================================
+// ========================================
 // SETTINGS
-// ================================================
+// ========================================
 
 const CONTACT_FORM_URL =
   'https://onlyregistered.github.io/appfeedback/#feedback';
@@ -25,17 +22,15 @@ const SUPABASE_ANON_KEY =
 const COUNTERS_ENABLED =
   Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 
-
-// ================================================
+// ========================================
 // STORIES
-// ================================================
+// ========================================
 
 const stories = [
   {
     id: 'wine',
     emoji: '🍷',
     age: '8',
-
     files: {
       de: {
         mp3: 'Der_geheimnisvolle_Weinverkaeufer.mp3',
@@ -46,25 +41,21 @@ const stories = [
         pdf: 'The_Mysterious_Wine_Seller.pdf'
       }
     },
-
     de: {
       title: 'Der geheimnisvolle Weinverkäufer',
       description:
         'Ein ungewöhnlicher Händler zeigt, wie sehr Worte und Erwartungen unsere Gedanken beeinflussen können.'
     },
-
     en: {
       title: 'The Mysterious Wine Seller',
       description:
         'A curious merchant shows how words and expectations can shape what we think and feel.'
     }
   },
-
   {
     id: 'sun',
     emoji: '☀️',
     age: '5',
-
     files: {
       de: {
         mp3: 'Die_Sonne_aus_Kimberley.mp3',
@@ -75,25 +66,21 @@ const stories = [
         pdf: 'The_Little_Boy_and_the_Sunshine_from_Kimberley.pdf'
       }
     },
-
     de: {
       title: 'Der kleine Junge und die Sonne aus Kimberley',
       description:
         'Eine warme Geschichte über Dankbarkeit, Freundlichkeit und ein Geschenk, das man nur fühlen kann.'
     },
-
     en: {
       title: 'The Little Boy and the Sunshine from Kimberley',
       description:
         'A heartwarming tale of gratitude, kindness, and a gift that can only be felt.'
     }
   },
-
   {
     id: 'cat',
     emoji: '🐈',
     age: '6',
-
     files: {
       de: {
         mp3: 'Rafaels_Abenteuer,_Eine_vierjährige_Reise_nach_Hause.mp3',
@@ -104,26 +91,22 @@ const stories = [
         pdf: 'Rafaels_Adventures,_A_Four-Year_Journey_Home.pdf'
       }
     },
-
     de: {
       title: 'Rafaels Abenteuer – Eine vierjährige Reise nach Hause',
       description:
         'Ein mutiger roter Kater entdeckt die große Welt und findet nach vier Jahren den Weg zurück zu seiner Familie.'
     },
-
     en: {
       title: 'Rafael’s Adventures – A Four-Year Journey Home',
       description:
         'A brave ginger cat explores the wide world and finds his way back to his family after four years.'
     }
   },
-
   {
     id: 'ronnie1',
     emoji: '🦚',
     age: '5',
     image: 'Ronnie_Band_1.jpg',
-
     files: {
       de: {
         mp3: 'Ronnie_Die_kleine_Pfauenhenne.mp3',
@@ -134,26 +117,22 @@ const stories = [
         pdf: 'Ronnie_The_Little_Peahen.pdf'
       }
     },
-
     de: {
       title: 'Ronnie – Die kleine Pfauenhenne',
       description:
         'Die wahre Geschichte einer kleinen Pfauenhenne, die auf Green Farm von Menschen großgezogen wird und ihre Familie mit Mut und Vertrauen überrascht.'
     },
-
     en: {
       title: 'Ronnie – The Little Peahen',
       description:
         'The true story of a little peahen raised by people at Green Farm, whose courage and trust bring wonderful surprises to her family.'
     }
   },
-
   {
     id: 'ronnie2',
     emoji: '🦚',
     age: '5',
     image: 'Ronnie_Band_2.jpg',
-
     files: {
       de: {
         mp3: 'Ronnie_Band_2_Weihnachtskueken.mp3',
@@ -164,25 +143,56 @@ const stories = [
         pdf: 'Ronnie_Book_2_Christmas_Chicks.pdf'
       }
     },
-
     de: {
       title: 'Ronnie und die Weihnachtsküken – Band 2',
       description:
         'Ronnie wird Mama! Kurz vor Weihnachten schlüpfen zwei kleine Pfauenküken namens Feliz und Navidad. Eine wahre Geschichte über Liebe, Vertrauen, Familie und das Leben auf Green Farm.'
     },
-
     en: {
       title: 'Ronnie and the Christmas Chicks – Book 2',
       description:
         'Ronnie becomes a mother! Just in time for Christmas, two little peafowl chicks named Feliz and Navidad hatch. A true story of love, trust, family and life at Green Farm.'
     }
+  },
+
+  // ======================================
+  // NEW STORY - GREEN FARM BOOK 3
+  // ======================================
+
+  {
+    id: 'ronnie3',
+    emoji: '🦚',
+    age: '6',
+    image: 'Twelve_Peafowls.jpg',
+
+    files: {
+      de: {
+        mp3: 'Die_zwölf_Pfauen_von_Green_Farm.mp3',
+        pdf: 'Die_zwölf_Pfauen_von_Green_Farm.pdf'
+      },
+      en: {
+        mp3: 'The_Twelve_Peafowl_of_Green_Farm.mp3',
+        pdf: 'The_Twelve_Peafowl_of_Green_Farm.pdf'
+      }
+    },
+
+    de: {
+      title: 'Die zwölf Pfauen von Green Farm',
+      description:
+        'Zwölf Pfauen, ein Schlafbaum und viele Abenteuer im Nordkap. Eine wahre Geschichte über Freundschaft, Gefahren und die Freiheit wilder Vögel.'
+    },
+
+    en: {
+      title: 'The Twelve Peafowl of Green Farm',
+      description:
+        'Twelve peafowl, one sleeping tree and adventures in the Northern Cape. A true story about friendship, danger and respecting the freedom of wild birds.'
+    }
   }
 ];
 
-
-// ================================================
+// ========================================
 // TRANSLATIONS
-// ================================================
+// ========================================
 
 const translations = {
   de: {
@@ -191,11 +201,9 @@ const translations = {
     heroText:
       'Dies ist ein kleines Hobby von uns. Aus Erlebnissen, besonderen Momenten und Ideen entstehen liebevoll erzählte Geschichten – besonders für Kinder.',
     explore: 'Geschichten entdecken ↓',
-
     collectionLabel: 'Unsere Sammlung',
     collectionTitle: 'Geschichten zum Träumen',
     collectionHint: 'Anhören, lesen und kostenlos herunterladen',
-
     listen: '▶ Anhören',
     read: '📖 PDF öffnen',
     download: '↓ Herunterladen',
@@ -203,25 +211,20 @@ const translations = {
     share: 'Teilen',
     shareCopied: 'Link kopiert!',
     shareCopy: 'Link kopieren',
-
     whyTitle: 'Mit Herz erzählt',
     whyText:
       'Hinter jeder Geschichte steckt ein kleiner Gedanke über Freundlichkeit, Mut, Dankbarkeit oder Zusammenhalt.',
-
     agesTitle: 'Für kleine und große Zuhörer',
     agesText:
       'Unsere Geschichten sind ungefähr für Kinder von 5 bis 12 Jahren gedacht – zum Vorlesen, Selberlesen und Zuhören.',
-
     freeTitle: 'Kostenlos zum Teilen',
     freeText:
       'Du darfst die Geschichten kostenlos lesen, herunterladen, anhören und an andere weitergeben. Bitte nenne dabei unsere Sammlung.',
-
     contactLabel: 'Erzähl uns deine Idee',
     contactTitle: 'Welche Geschichte sollen wir als Nächstes erzählen?',
     contactText:
       'Du hast einen Wunsch, ein besonderes Erlebnis oder eine Idee? Wir freuen uns über eine Nachricht über das Kontaktformular unserer Hauptwebsite.',
     contactButton: 'Zum Kontaktformular ↗',
-
     footer: 'Ein kleines Hobby, mit Freude geteilt.'
   },
 
@@ -231,11 +234,9 @@ const translations = {
     heroText:
       'This is a small hobby of ours. We turn experiences, special moments, and ideas into lovingly told stories – especially for children.',
     explore: 'Explore the stories ↓',
-
     collectionLabel: 'Our collection',
     collectionTitle: 'Stories to dream about',
     collectionHint: 'Listen, read and download for free',
-
     listen: '▶ Listen',
     read: '📖 Open PDF',
     download: '↓ Download',
@@ -243,33 +244,27 @@ const translations = {
     share: 'Share',
     shareCopied: 'Link copied!',
     shareCopy: 'Copy link',
-
     whyTitle: 'Stories told with heart',
     whyText:
       'Every story holds a little lesson about kindness, courage, gratitude, or togetherness.',
-
     agesTitle: 'For young readers and listeners',
     agesText:
       'Our stories are generally for children aged 5 to 12 – to read aloud, read independently, or listen to.',
-
     freeTitle: 'Free to enjoy and share',
     freeText:
       'You are welcome to read, download, listen to and share these stories for free. Please credit our collection when sharing.',
-
     contactLabel: 'Tell us your idea',
     contactTitle: 'What story should we tell as our next story?',
     contactText:
       'Have a wish, a special experience, or a story idea? We would love to hear from you through the contact form on our main website.',
     contactButton: 'Go to contact form ↗',
-
     footer: 'A small hobby, shared with joy.'
   }
 };
 
-
-// ================================================
+// ========================================
 // LANGUAGE AND COUNTER SETTINGS
-// ================================================
+// ========================================
 
 let language =
   localStorage.getItem('story-language') === 'en'
@@ -285,21 +280,21 @@ const metrics = [
 ];
 
 const counterCache = {};
-
 const countedViews = new Set();
 
 let storyObserver = null;
-
 let counterLoadSequence = 0;
 
-const zeroCounts = () => ({
-  views: 0,
-  listens: 0,
-  reads: 0,
-  downloads: 0,
-  mp3_downloads: 0,
-  pdf_downloads: 0
-});
+function zeroCounts() {
+  return {
+    views: 0,
+    listens: 0,
+    reads: 0,
+    downloads: 0,
+    mp3_downloads: 0,
+    pdf_downloads: 0
+  };
+}
 
 function counterKey(storyId, lang) {
   return `${storyId}_${lang}`;
@@ -337,10 +332,9 @@ function counterLabels() {
       ];
 }
 
-
-// ================================================
-// SUPABASE REQUEST HEADERS
-// ================================================
+// ========================================
+// SUPABASE
+// ========================================
 
 function supabaseHeaders() {
   return {
@@ -348,10 +342,9 @@ function supabaseHeaders() {
   };
 }
 
-
-// ================================================
+// ========================================
 // DISPLAY COUNTERS
-// ================================================
+// ========================================
 
 function paintCounters() {
   for (const story of stories) {
@@ -370,10 +363,9 @@ function paintCounters() {
   }
 }
 
-
-// ================================================
+// ========================================
 // LOAD COUNTERS
-// ================================================
+// ========================================
 
 async function loadCounters() {
   if (!COUNTERS_ENABLED) return;
@@ -400,7 +392,6 @@ async function loadCounters() {
 
     const rows = await response.json();
 
-    // Ignore an older request if a newer one has started.
     if (sequence !== counterLoadSequence) return;
 
     for (const row of rows) {
@@ -416,10 +407,9 @@ async function loadCounters() {
   }
 }
 
-
-// ================================================
-// RECORD EVENTS
-// ================================================
+// ========================================
+// RECORD COUNTER EVENTS
+// ========================================
 
 async function recordEvent(storyId, lang, metric) {
   if (
@@ -458,7 +448,6 @@ async function recordEvent(storyId, lang, metric) {
       );
     }
 
-    // Update the local display immediately after success.
     const key = counterKey(storyId, lang);
 
     if (!counterCache[key]) {
@@ -478,7 +467,6 @@ async function recordEvent(storyId, lang, metric) {
 
     paintCounters();
 
-    // Read the authoritative database values again.
     await loadCounters();
 
     return true;
@@ -493,22 +481,15 @@ async function recordEvent(storyId, lang, metric) {
   }
 }
 
-
-// ================================================
-// STORY VIEWS
-// ================================================
-
-// Count once per card, per language, per page load.
-// A new page visit can register a new view.
+// ========================================
+// TRACK STORY VIEWS
+// ========================================
 
 async function trackView(storyId, lang) {
   const key = counterKey(storyId, lang);
 
-  if (countedViews.has(key)) {
-    return;
-  }
+  if (countedViews.has(key)) return;
 
-  // Prevent duplicate simultaneous requests.
   countedViews.add(key);
 
   const saved = await recordEvent(
@@ -517,16 +498,14 @@ async function trackView(storyId, lang) {
     'views'
   );
 
-  // Allow retry if Supabase did not save it.
   if (!saved) {
     countedViews.delete(key);
   }
 }
 
-
-// ================================================
+// ========================================
 // OBSERVE VISIBLE STORY CARDS
-// ================================================
+// ========================================
 
 function setupStoryViews() {
   if (storyObserver) {
@@ -572,10 +551,9 @@ function setupStoryViews() {
   });
 }
 
-
-// ================================================
-// SHARE STORY
-// ================================================
+// ========================================
+// SHARING
+// ========================================
 
 function getStoryLink(storyId, lang) {
   const url = new URL(window.location.href);
@@ -653,7 +631,6 @@ async function shareStory(storyId, button) {
     }
 
     await copyStoryLink(link);
-
     showShareNotice(button, t.shareCopied);
 
   } catch (error) {
@@ -668,10 +645,9 @@ async function shareStory(storyId, button) {
   }
 }
 
-
-// ================================================
-// OPEN DIRECT STORY LINKS
-// ================================================
+// ========================================
+// DIRECT STORY LINKS
+// ========================================
 
 function openSharedStory() {
   const match =
@@ -717,15 +693,16 @@ window.addEventListener(
   openSharedStory
 );
 
-
-// ================================================
-// RENDER WEBSITE AND STORY CARDS
-// ================================================
+// ========================================
+// RENDER WEBSITE
+// ========================================
 
 function render() {
   const t = translations[language];
 
   document.documentElement.lang = language;
+
+  // Translate static website text.
 
   document.querySelectorAll(
     '[data-i18n]'
@@ -738,6 +715,8 @@ function render() {
       element.textContent = t[key];
     }
   });
+
+  // Update language buttons.
 
   document.querySelectorAll(
     'button.lang[data-lang]'
@@ -757,6 +736,8 @@ function render() {
     document.getElementById('storyGrid');
 
   if (!storyGrid) return;
+
+  // Create all story cards.
 
   storyGrid.innerHTML = stories.map(story => {
     const files = story.files[language];
@@ -903,10 +884,9 @@ function render() {
     `;
   }).join('');
 
-
-  // ==============================================
+  // ======================================
   // AUDIO EVENTS
-  // ==============================================
+  // ======================================
 
   document.querySelectorAll(
     'audio.player'
@@ -945,10 +925,9 @@ function render() {
     });
   });
 
-
-  // ==============================================
+  // ======================================
   // LISTEN BUTTONS
-  // ==============================================
+  // ======================================
 
   document.querySelectorAll(
     '[data-play]'
@@ -995,10 +974,9 @@ function render() {
     });
   });
 
-
-  // ==============================================
+  // ======================================
   // PDF AND DOWNLOAD EVENTS
-  // ==============================================
+  // ======================================
 
   document.querySelectorAll(
     '[data-track]'
@@ -1018,10 +996,9 @@ function render() {
     });
   });
 
-
-  // ==============================================
+  // ======================================
   // SHARE BUTTONS
-  // ==============================================
+  // ======================================
 
   document.querySelectorAll(
     '[data-share]'
@@ -1035,17 +1012,13 @@ function render() {
   });
 
   paintCounters();
-
-  // Count visible cards.
   setupStoryViews();
-
   openSharedStory();
 }
 
-
-// ================================================
+// ========================================
 // LANGUAGE BUTTONS
-// ================================================
+// ========================================
 
 document.querySelectorAll(
   'button.lang[data-lang]'
@@ -1061,15 +1034,13 @@ document.querySelectorAll(
     );
 
     render();
-
     loadCounters();
   });
 });
 
-
-// ================================================
+// ========================================
 // FOOTER YEAR
-// ================================================
+// ========================================
 
 const year = document.getElementById('year');
 
@@ -1077,10 +1048,9 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-
-// ================================================
+// ========================================
 // CONTACT FORM
-// ================================================
+// ========================================
 
 const contact =
   document.getElementById('contactLink');
@@ -1089,10 +1059,9 @@ if (contact) {
   contact.href = CONTACT_FORM_URL;
 }
 
-
-// ================================================
+// ========================================
 // START WEBSITE
-// ================================================
+// ========================================
 
 render();
 loadCounters();
