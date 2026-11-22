@@ -1,7 +1,8 @@
 /*
   Stories for Little Dreamers
-  Bilingual stories, Supabase counters,
-  audio playback, downloads and sharing.
+  Complete script.js
+  German and English stories
+  Audio, PDF, sharing and Supabase counters
 */
 
 const CONTACT_FORM_URL =
@@ -87,8 +88,8 @@ const stories = [
 
     files: {
       de: {
-        mp3: 'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.mp3',
-        pdf: 'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.pdf'
+        mp3: 'Rafaels_Abenteuer,_Eine_vierjährige_Reise_nach_Hause.mp3',
+        pdf: 'Rafaels_Abenteuer,_Eine_vierjährige_Reise_nach_Hause.pdf'
       },
       en: {
         mp3: 'Rafaels_Adventures,_A_Four-Year_Journey_Home.mp3',
@@ -107,17 +108,38 @@ const stories = [
       description:
         'A brave ginger cat explores the wide world and finds his way back to his family after four years.'
     }
+  },
+
+  {
+    id: 'ronnie1',
+    emoji: '🦚',
+    age: '5',
+    image: 'Ronnie_Band_1.jpg',
+
+    files: {
+      de: {
+        mp3: 'Ronnie_Die_kleine_Pfauenhenne.mp3',
+        pdf: 'Ronnie_Die_kleine_Pfauenhenne.pdf'
+      },
+      en: {
+        mp3: 'Ronnie_The_Little_Peahen.mp3',
+        pdf: 'Ronnie_The_Little_Peahen.pdf'
+      }
+    },
+
+    de: {
+      title: 'Ronnie – Die kleine Pfauenhenne',
+      description:
+        'Die wahre Geschichte einer kleinen Pfauenhenne, die auf Green Farm von Menschen großgezogen wird und ihre Familie mit Mut und Vertrauen überrascht.'
+    },
+
+    en: {
+      title: 'Ronnie – The Little Peahen',
+      description:
+        'The true story of a little peahen raised by people at Green Farm, whose courage and trust bring wonderful surprises to her family.'
+    }
   }
 ];
-
-// Preserve the original German filenames.
-stories[2].files.de.mp3 =
-  'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.mp3'
-    .replaceAll(' ', '_');
-
-stories[2].files.de.pdf =
-  'Rafaels_Abenteuer,_Eine vierjährige Reise nach Hause.pdf'
-    .replaceAll(' ', '_');
 
 
 // ================================================
@@ -382,10 +404,7 @@ async function recordEvent(storyId, lang, metric) {
     }
 
   } catch (error) {
-    console.warn(
-      'Counter update unavailable:',
-      error
-    );
+    console.warn('Counter update unavailable:', error);
 
     counts[metric] = Math.max(
       0,
@@ -519,12 +538,16 @@ async function shareStory(storyId, button) {
 
 function openSharedStory() {
   const match =
-    /^#story-(wine|sun|cat)-(de|en)$/
+    /^#story-([a-z0-9]+)-(de|en)$/
       .exec(window.location.hash);
 
   if (!match) return;
 
   const [, id, lang] = match;
+
+  if (!stories.some(story => story.id === id)) {
+    return;
+  }
 
   if (language !== lang) {
     language = lang;
@@ -612,7 +635,10 @@ function render() {
     const details = story[language];
 
     const image =
-      story.id === 'cat' ? 'rafael' : story.id;
+      story.image ||
+      (story.id === 'cat'
+        ? 'rafael.jpg'
+        : `${story.id}.jpg`);
 
     const audioPath =
       `stories/${encodeURIComponent(files.mp3)}`;
@@ -627,7 +653,7 @@ function render() {
         <div class="story-art ${story.id}">
 
           <img
-            src="images/${image}.jpg"
+            src="images/${image}"
             alt="${details.title}"
             loading="lazy"
           >
