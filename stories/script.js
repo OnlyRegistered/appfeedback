@@ -344,8 +344,7 @@ function counterLabels() {
 
 function supabaseHeaders() {
   return {
-    apikey: SUPABASE_ANON_KEY,
-    Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+    apikey: SUPABASE_ANON_KEY
   };
 }
 
@@ -564,7 +563,7 @@ function setupStoryViews() {
       }
     },
     {
-      threshold: 0.25
+      threshold: 0.01
     }
   );
 
