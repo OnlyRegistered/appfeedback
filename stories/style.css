@@ -5,62 +5,49 @@
 
 .story-counts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:0 0 17px}.story-counts span{font-size:12px;color:#5d5470;background:#f5eff8;border-radius:9px;padding:9px 10px}.story-counts b{color:#352a52;font-size:15px}.story-counts span:first-child{background:#fff1d9}
 
-/* SMALLER TEILEN / SHARE BUTTON */
-/* FIX SHARE BUTTON AND BADGE LAYOUT */
-
+/* ==========================================
+   AGE LEFT - SMALL SHARE BUTTON FAR RIGHT
+   ========================================== */
 .story-badges {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    flex-wrap: wrap !important;
-    gap: 6px !important;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-self: stretch;
+    width: 100%;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
 .story-badges .age {
-    width: auto !important;
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-    padding: 4px 8px !important;
-    font-size: 11px !important;
-}
-
-/* AGE LEFT - SHARE RIGHT */
-
-.story-badges {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    flex-wrap: nowrap !important;
-    gap: 12px !important;
-    width: 100% !important;
-    margin-bottom: 10px !important;
-}
-
-.story-badges .age {
-    flex: 0 1 auto !important;
-    width: auto !important;
-    padding: 4px 8px !important;
-    font-size: 11px !important;
-    margin: 0 !important;
+    display: inline-block;
+    flex: 0 1 auto;
+    width: auto;
+    margin: 0;
+    padding: 4px 8px;
+    font-size: 11px;
+    line-height: 1.2;
+    white-space: nowrap;
 }
 
 .story-badges .story-share {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    flex: 0 0 auto !important;
-    margin: 0 0 0 auto !important;
-    width: auto !important;
-    min-width: 0 !important;
-    height: 21px !important;
-    min-height: 0 !important;
-    padding: 2px 6px !important;
-    font-size: 9px !important;
-    font-weight: 600 !important;
-    line-height: 1 !important;
-    border-radius: 5px !important;
-    white-space: nowrap !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    align-self: center;
+    margin: 0 0 0 auto;
+    width: auto;
+    min-width: 0;
+    height: 20px;
+    padding: 2px 5px;
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1;
+    border: 1px solid #e5d7c9;
+    border-radius: 5px;
+    background: #fff9ee;
+    color: #49345e;
+    white-space: nowrap;
     cursor: pointer;
 }
