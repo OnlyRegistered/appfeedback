@@ -1,11 +1,12 @@
+
 /*
   Stories for Little Dreamers
   Complete script.js
 
-  German and English stories
-  Audio, PDF, sharing and Supabase counters
+  Five bilingual stories
+  Supabase counters, audio, PDFs and sharing
 
-  Includes Ronnie Book 1 and Book 2
+  Counter repair: November 2026
 */
 
 // ================================================
@@ -117,10 +118,6 @@ const stories = [
     }
   },
 
-  // ==============================================
-  // RONNIE - BOOK 1
-  // ==============================================
-
   {
     id: 'ronnie1',
     emoji: '🦚',
@@ -150,10 +147,6 @@ const stories = [
         'The true story of a little peahen raised by people at Green Farm, whose courage and trust bring wonderful surprises to her family.'
     }
   },
-
-  // ==============================================
-  // RONNIE - BOOK 2 - NEW
-  // ==============================================
 
   {
     id: 'ronnie2',
@@ -293,6 +286,21 @@ const metrics = [
 
 const counterCache = {};
 
+const countedViews = new Set();
+
+let storyObserver = null;
+
+let counterLoadSequence = 0;
+
+const zeroCounts = () => ({
+  views: 0,
+  listens: 0,
+  reads: 0,
+  downloads: 0,
+  mp3_downloads: 0,
+  pdf_downloads: 0
+});
+
 function counterKey(storyId, lang) {
   return `${storyId}_${lang}`;
 }
@@ -331,6 +339,18 @@ function counterLabels() {
 
 
 // ================================================
+// SUPABASE REQUEST HEADERS
+// ================================================
+
+function supabaseHeaders() {
+  return {
+    apikey: SUPABASE_ANON_KEY,
+    Authorization: `Bearer ${SUPABASE_ANON_KEY}`
+  };
+}
+
+
+// ================================================
 // DISPLAY COUNTERS
 // ================================================
 
@@ -345,8 +365,7 @@ function paintCounters() {
       );
 
       if (element) {
-        element.textContent =
-          counterText(counts[metric]);
+        element.textContent = counterText(counts[metric]);
       }
     });
   }
@@ -354,30 +373,36 @@ function paintCounters() {
 
 
 // ================================================
-// LOAD COUNTERS FROM SUPABASE
+// LOAD COUNTERS
 // ================================================
 
 async function loadCounters() {
   if (!COUNTERS_ENABLED) return;
 
+  const sequence = ++counterLoadSequence;
+
   try {
     const response = await fetch(
       `${SUPABASE_URL}/rest/v1/story_counts?select=story_id,language,views,listens,reads,downloads,mp3_downloads,pdf_downloads`,
       {
-        headers: {
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`
-        }
+        method: 'GET',
+        headers: supabaseHeaders(),
+        cache: 'no-store'
       }
     );
 
     if (!response.ok) {
+      const detail = await response.text();
+
       throw new Error(
-        `Counter request failed (${response.status})`
+        `Counter loading failed: ${response.status} ${detail}`
       );
     }
 
     const rows = await response.json();
+
+    // Ignore an older request if a newer one has started.
+    if (sequence !== counterLoadSequence) return;
 
     for (const row of rows) {
       counterCache[
@@ -388,7 +413,7 @@ async function loadCounters() {
     paintCounters();
 
   } catch (error) {
-    console.warn('Counters unavailable:', error);
+    console.error('Supabase counter loading error:', error);
   }
 }
 
@@ -400,28 +425,12 @@ async function loadCounters() {
 async function recordEvent(storyId, lang, metric) {
   if (
     !COUNTERS_ENABLED ||
-    !metrics.includes(metric)
+    !metrics.includes(metric) ||
+    !stories.some(story => story.id === storyId) ||
+    !['de', 'en'].includes(lang)
   ) {
-    return;
+    return false;
   }
-
-  const key = counterKey(storyId, lang);
-
-  const counts = counterCache[key] || {
-    views: 0,
-    listens: 0,
-    reads: 0,
-    downloads: 0,
-    mp3_downloads: 0,
-    pdf_downloads: 0
-  };
-
-  counterCache[key] = counts;
-
-  counts[metric] =
-    (Number(counts[metric]) || 0) + 1;
-
-  paintCounters();
 
   try {
     const response = await fetch(
@@ -429,8 +438,7 @@ async function recordEvent(storyId, lang, metric) {
       {
         method: 'POST',
         headers: {
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          ...supabaseHeaders(),
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -438,25 +446,51 @@ async function recordEvent(storyId, lang, metric) {
           p_language: lang,
           p_metric: metric
         }),
+        cache: 'no-store',
         keepalive: true
       }
     );
 
     if (!response.ok) {
+      const detail = await response.text();
+
       throw new Error(
-        `Event could not be recorded (${response.status})`
+        `Counter saving failed: ${response.status} ${detail}`
       );
     }
 
-  } catch (error) {
-    console.warn('Counter update unavailable:', error);
+    // Update the local display immediately after success.
+    const key = counterKey(storyId, lang);
 
-    counts[metric] = Math.max(
-      0,
-      (Number(counts[metric]) || 0) - 1
-    );
+    if (!counterCache[key]) {
+      counterCache[key] = zeroCounts();
+    }
+
+    counterCache[key][metric] =
+      Number(counterCache[key][metric] || 0) + 1;
+
+    if (
+      metric === 'mp3_downloads' ||
+      metric === 'pdf_downloads'
+    ) {
+      counterCache[key].downloads =
+        Number(counterCache[key].downloads || 0) + 1;
+    }
 
     paintCounters();
+
+    // Read the authoritative database values again.
+    await loadCounters();
+
+    return true;
+
+  } catch (error) {
+    console.error(
+      `Could not save ${metric} for ${storyId}/${lang}:`,
+      error
+    );
+
+    return false;
   }
 }
 
@@ -465,16 +499,78 @@ async function recordEvent(storyId, lang, metric) {
 // STORY VIEWS
 // ================================================
 
-function trackView(storyId, lang) {
-  const key = `story-viewed-${storyId}-${lang}`;
+// Count once per card, per language, per page load.
+// A new page visit can register a new view.
 
-  if (sessionStorage.getItem(key)) {
+async function trackView(storyId, lang) {
+  const key = counterKey(storyId, lang);
+
+  if (countedViews.has(key)) {
     return;
   }
 
-  sessionStorage.setItem(key, '1');
+  // Prevent duplicate simultaneous requests.
+  countedViews.add(key);
 
-  recordEvent(storyId, lang, 'views');
+  const saved = await recordEvent(
+    storyId,
+    lang,
+    'views'
+  );
+
+  // Allow retry if Supabase did not save it.
+  if (!saved) {
+    countedViews.delete(key);
+  }
+}
+
+
+// ================================================
+// OBSERVE VISIBLE STORY CARDS
+// ================================================
+
+function setupStoryViews() {
+  if (storyObserver) {
+    storyObserver.disconnect();
+    storyObserver = null;
+  }
+
+  const observedLanguage = language;
+
+  const cards = document.querySelectorAll(
+    '.story-card'
+  );
+
+  if (!('IntersectionObserver' in window)) {
+    cards.forEach(card => {
+      const storyId = card.id.replace('story-', '');
+      trackView(storyId, observedLanguage);
+    });
+
+    return;
+  }
+
+  storyObserver = new IntersectionObserver(
+    entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+
+        const card = entry.target;
+        const storyId = card.id.replace('story-', '');
+
+        storyObserver.unobserve(card);
+
+        trackView(storyId, observedLanguage);
+      }
+    },
+    {
+      threshold: 0.25
+    }
+  );
+
+  cards.forEach(card => {
+    storyObserver.observe(card);
+  });
 }
 
 
@@ -562,14 +658,11 @@ async function shareStory(storyId, button) {
     showShareNotice(button, t.shareCopied);
 
   } catch (error) {
-    if (error.name === 'AbortError') {
-      return;
-    }
+    if (error.name === 'AbortError') return;
 
     try {
       await copyStoryLink(link);
       showShareNotice(button, t.shareCopied);
-
     } catch (copyError) {
       window.prompt(t.shareCopy, link);
     }
@@ -635,8 +728,6 @@ function render() {
 
   document.documentElement.lang = language;
 
-  // Translate website text.
-
   document.querySelectorAll(
     '[data-i18n]'
   ).forEach(element => {
@@ -649,26 +740,19 @@ function render() {
     }
   });
 
-  // Update language buttons.
-
   document.querySelectorAll(
     'button.lang[data-lang]'
   ).forEach(button => {
     const active =
       button.dataset.lang === language;
 
-    button.classList.toggle(
-      'active',
-      active
-    );
+    button.classList.toggle('active', active);
 
     button.setAttribute(
       'aria-pressed',
       String(active)
     );
   });
-
-  // Build story cards.
 
   const storyGrid =
     document.getElementById('storyGrid');
@@ -696,13 +780,11 @@ function render() {
                id="story-${story.id}">
 
         <div class="story-art ${story.id}">
-
           <img
             src="images/${image}"
             alt="${details.title}"
             loading="lazy"
           >
-
         </div>
 
         <div class="story-body">
@@ -740,7 +822,6 @@ function render() {
                 : 'Story statistics'
             }"
           >
-
             ${metrics.map(
               (metric, index) => `
                 <span>
@@ -751,7 +832,6 @@ function render() {
                 </span>
               `
             ).join('')}
-
           </div>
 
           <div class="story-actions">
@@ -813,8 +893,8 @@ function render() {
           >
             ${
               language === 'de'
-                ? 'Die Audiodatei konnte nicht geladen werden. Bitte prüfe, ob die MP3 im inneren stories-Ordner liegt und der Dateiname genau stimmt.'
-                : 'Audio could not be loaded. Check that the MP3 is in the inner stories folder and that its filename matches exactly.'
+                ? 'Die Audiodatei konnte nicht geladen werden. Bitte prüfe den Dateinamen und den stories-Ordner.'
+                : 'Audio could not be loaded. Check the filename and stories folder.'
             }
           </p>
 
@@ -826,7 +906,7 @@ function render() {
 
 
   // ==============================================
-  // AUDIO PLAYBACK AND LISTEN COUNTER
+  // AUDIO EVENTS
   // ==============================================
 
   document.querySelectorAll(
@@ -844,9 +924,7 @@ function render() {
         `audio-help-${storyId}`
       );
 
-      if (help) {
-        help.hidden = false;
-      }
+      if (help) help.hidden = false;
     });
 
     audio.addEventListener('playing', () => {
@@ -888,10 +966,7 @@ function render() {
       const open =
         !audio.classList.contains('visible');
 
-      audio.classList.toggle(
-        'visible',
-        open
-      );
+      audio.classList.toggle('visible', open);
 
       button.setAttribute(
         'aria-expanded',
@@ -902,24 +977,17 @@ function render() {
         document.querySelectorAll(
           'audio'
         ).forEach(other => {
-          if (other !== audio) {
-            other.pause();
-          }
+          if (other !== audio) other.pause();
         });
 
         audio.play().catch(error => {
-          console.warn(
-            'Audio playback failed:',
-            error
-          );
+          console.warn('Audio playback failed:', error);
 
           const help = document.getElementById(
             `audio-help-${storyId}`
           );
 
-          if (help) {
-            help.hidden = false;
-          }
+          if (help) help.hidden = false;
         });
 
       } else {
@@ -930,22 +998,23 @@ function render() {
 
 
   // ==============================================
-  // PDF AND DOWNLOAD COUNTERS
+  // PDF AND DOWNLOAD EVENTS
   // ==============================================
 
   document.querySelectorAll(
     '[data-track]'
   ).forEach(link => {
     link.addEventListener('click', () => {
-      trackView(
-        link.dataset.story,
-        language
-      );
+      const storyId = link.dataset.story;
+      const metric = link.dataset.track;
+      const selectedLanguage = language;
+
+      trackView(storyId, selectedLanguage);
 
       recordEvent(
-        link.dataset.story,
-        language,
-        link.dataset.track
+        storyId,
+        selectedLanguage,
+        metric
       );
     });
   });
@@ -967,6 +1036,10 @@ function render() {
   });
 
   paintCounters();
+
+  // Count visible cards.
+  setupStoryViews();
+
   openSharedStory();
 }
 
@@ -979,6 +1052,8 @@ document.querySelectorAll(
   'button.lang[data-lang]'
 ).forEach(button => {
   button.addEventListener('click', () => {
+    if (language === button.dataset.lang) return;
+
     language = button.dataset.lang;
 
     localStorage.setItem(
@@ -987,6 +1062,8 @@ document.querySelectorAll(
     );
 
     render();
+
+    loadCounters();
   });
 });
 
@@ -998,8 +1075,7 @@ document.querySelectorAll(
 const year = document.getElementById('year');
 
 if (year) {
-  year.textContent =
-    new Date().getFullYear();
+  year.textContent = new Date().getFullYear();
 }
 
 
